@@ -29,16 +29,6 @@ python3 python/dev_server.py
 ```
 
 
-
-### Option 2: Docker
-
-```bash
-docker build -t ucc-quiz .
-docker run --rm -p 8080:80 ucc-quiz
-```
-
-Visit http://localhost:8080
-
 ## Structure
 
 ```
@@ -86,8 +76,6 @@ The app automatically falls back to JavaScript if WASM isn't available.
 
 
 
-
-
 ## License
 
 **MIT License** - See [LICENSE](LICENSE) for details.
@@ -95,6 +83,7 @@ The app automatically falls back to JavaScript if WASM isn't available.
 Copyright (c) 2026 Me (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
 
 
 
