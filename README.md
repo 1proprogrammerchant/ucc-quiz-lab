@@ -28,7 +28,7 @@ Built by **Me** (GitHub: [1proprogrammerchant](https://github.com/1proprogrammer
 python3 python/dev_server.py
 ```
 
-Visit http://localhost:8000
+
 
 ### Option 2: Docker
 
@@ -95,6 +95,7 @@ The app automatically falls back to JavaScript if WASM isn't available.
 Copyright (c) 2026 Me (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
 
 
 
