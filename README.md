@@ -6,12 +6,12 @@ Built by **Jerome Henry** (GitHub: [1proprogrammerchant](https://github.com/1pro
 
 ## Features
 
-- 🎯 **40 questions** across 2 tracks: Campus Life & CS Basics
-- ⚡ **C++ WebAssembly scoring engine** (with JS fallback)
-- 🌟 **Advanced scoring**: Percentage, letter grades, star ratings, streak bonuses
-- 🎨 **Smooth animations**: Fade-in reveals, floating orbs, theme switcher
-- 📊 **Live stats**: Real-time streak, accuracy, and bonus multipliers
-- 🔀 **Quiz controls**: Shuffle, track filters, skip questions
+- **40 questions** across 2 tracks: Campus Life & CS Basics
+- **C++ WebAssembly scoring engine** (with JS fallback)
+- **Advanced scoring**: Percentage, letter grades, star ratings, streak bonuses
+- **Smooth animations**: Fade-in reveals, floating orbs, theme switcher
+- **Live stats**: Real-time streak, accuracy, and bonus multipliers
+- **Quiz controls**: Shuffle, track filters, skip questions
 
 ## Tech Stack
 
@@ -118,3 +118,4 @@ vercel
 Copyright (c) 2026 Jerome Henry (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
