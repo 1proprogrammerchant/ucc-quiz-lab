@@ -84,32 +84,9 @@ The app automatically falls back to JavaScript if WASM isn't available.
 - **Change theme**: Update CSS variables in `css/variables.css`
 - **New tracks**: Add track filter in `quiz.js` and HTML
 
-## Deployment
 
-### GitHub Pages (Free)
 
-```bash
-# Push to GitHub
-git add .
-git commit -m "Deploy UCC Quiz Lab"
-git push origin main
 
-# Enable Pages in repo settings → Deploy from main branch
-# Live at: https://1proprogrammerchant.github.io/project-ucc/
-```
-
-### Netlify (Drag & Drop)
-
-1. Go to [netlify.com](https://netlify.com)
-2. Drag your `project-ucc` folder
-3. Instant deployment at `https://ucc-quiz-lab.netlify.app`
-
-### Vercel (CLI)
-
-```bash
-npm install -g vercel
-vercel
-```
 
 ## License
 
@@ -118,6 +95,7 @@ vercel
 Copyright (c) 2026 Me (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
 
 
 
