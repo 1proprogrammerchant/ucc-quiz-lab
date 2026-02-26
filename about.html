@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - UCC Quiz Lab</title>
+    <meta
+      name="description"
+      content="Learn about the UCC Quiz Lab, built by Jerome Henry (1proprogrammerchant) for interactive learning."
+    />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="logo">UCC Quiz Lab</a>
+        <nav class="nav-links">
+          <a href="index.html#quiz">Play</a>
+          <a href="index.html#tracks">Tracks</a>
+          <a href="about.html" class="active">About</a>
+          <a href="leaderboard.html">Scores</a>
+          <a href="docs.html">Guides</a>
+        </nav>
+        <div class="nav-socials">
+          <a class="btn btn-social" href="https://github.com/1proprogrammerchant" target="_blank" title="GitHub">Code</a>
+          <a class="btn btn-social" href="https://www.ucc.edu.jm/" target="_blank" title="UCC Website">UCC</a>
+        </div>
+        <button class="btn btn-ghost" id="themeToggle" type="button">Switch Vibe</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="padding: 60px 0 40px;">
+        <div class="container">
+          <h1 data-animate="fade-up">About UCC Quiz Lab</h1>
+          <p class="lede" data-animate="fade-up" data-delay="60">A modern, high-performance quiz platform designed to make learning interactive, engaging, and fun.</p>
+        </div>
+      </section>
+
+      <section class="about" id="mission">
+        <div class="container">
+          <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div>
+              <h2 data-animate="fade-up">Our Mission</h2>
+              <p style="margin-top: 20px;" data-animate="fade-up" data-delay="60">
+                UCC Quiz Lab was built to transform how students approach learning. We believe education should be engaging, rewarding, and accessible to everyone. Our platform gamifies the learning process with streak tracking, real-time scoring feedback, and beautiful UI/UX design.
+              </p>
+            </div>
+            <div data-animate="fade-up" data-delay="120">
+              <img src="images/ucc-campus.jpg" alt="University of Commonwealth Caribbean Campus" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow);" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(74, 163, 255, 0.08), transparent);">
+        <div class="container">
+          <h2 data-animate="fade-up">The Technology</h2>
+          <div class="features-grid" style="margin-top: 40px;">
+            <div class="feature-card" data-animate="fade-up" data-delay="60">
+              <h3>Frontend</h3>
+              <p>Modern HTML5, CSS3, and vanilla JavaScript (ES6 modules). No build tools, no bloat—just clean, performant code.</p>
+            </div>
+            <div class="feature-card" data-animate="fade-up" data-delay="120">
+              <h3>C++ WebAssembly</h3>
+              <p>The scoring engine is written in C++ and compiled to WebAssembly via Emscripten for blazing-fast calculations.</p>
+            </div>
+            <div class="feature-card" data-animate="fade-up" data-delay="180">
+              <h3>Backend</h3>
+              <p>Python HTTP server for local development. Easily deployable via Docker and nginx for production environments.</p>
+            </div>
+            <div class="feature-card" data-animate="fade-up" data-delay="240">
+              <h3>Database</h3>
+              <p>Browser local storage for score persistence. Future versions will include cloud sync and leaderboards.</p>
+            </div>
+            <div class="feature-card" data-animate="fade-up" data-delay="300">
+              <h3>Design System</h3>
+              <p>Custom CSS with CSS variables for theming. Two built-in themes: Default dark and Sunset purple.</p>
+            </div>
+            <div class="feature-card" data-animate="fade-up" data-delay="360">
+              <h3>Animation</h3>
+              <p>Smooth transitions and Intersection Observer-based reveal animations create an engaging user experience.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0;">
+        <div class="container">
+          <h2 data-animate="fade-up">Creator</h2>
+          <div style="max-width: 600px; margin-top: 40px;" data-animate="fade-up" data-delay="60">
+            <h3 style="margin-bottom: 12px;">Jerome Henry</h3>
+            <p>Full-stack developer, education technology enthusiast, and passionate advocate for open-source learning tools.</p>
+            <p style="margin-top: 16px; color: var(--muted);">
+              Driven by the belief that great education tools should be free, accessible, and beautiful. Jerome built UCC Quiz Lab as a labor of love for the University of Commonwealth Caribbean community.
+            </p>
+            <div style="margin-top: 24px; display: flex; gap: 16px;">
+              <a href="https://github.com/1proprogrammerchant" target="_blank" class="btn btn-outline">GitHub</a>
+              <a href="https://www.ucc.edu.jm/" target="_blank" class="btn btn-outline">Visit UCC</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(92, 242, 199, 0.08), transparent);">
+        <div class="container">
+          <h2 data-animate="fade-up">Why UCC Quiz Lab?</h2>
+          <div class="stats-grid" style="margin-top: 40px;">
+            <div class="stat-card" data-animate="fade-up" data-delay="60">
+              <p class="stat-number">0ms</p>
+              <p class="stat-label">Setup Time</p>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">No downloads or installations needed</p>
+            </div>
+            <div class="stat-card" data-animate="fade-up" data-delay="120">
+              <p class="stat-number">100%</p>
+              <p class="stat-label">Open Source</p>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">View and contribute on GitHub</p>
+            </div>
+            <div class="stat-card" data-animate="fade-up" data-delay="180">
+              <p class="stat-number">∞</p>
+              <p class="stat-label">Free Forever</p>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">No paywalls or subscriptions</p>
+            </div>
+            <div class="stat-card" data-animate="fade-up" data-delay="240">
+              <p class="stat-number">1ms</p>
+              <p class="stat-label">Load Time</p>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">Optimized for speed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container cta-box">
+          <h2 data-animate="fade-up">Ready to learn?</h2>
+          <p data-animate="fade-up" data-delay="60">Start testing your knowledge on UCC Quiz Lab today.</p>
+          <a href="index.html#quiz" class="btn btn-primary btn-lg" data-animate="fade-up" data-delay="120">Take the Quiz</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-section">
+          <h4>UCC Quiz Lab</h4>
+          <p>A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/1proprogrammerchant" target="_blank">GitHub</a>
+            <a href="https://www.ucc.edu.jm/" target="_blank">UCC</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#quiz">Start Quiz</a></li>
+            <li><a href="index.html#tracks">Pick Tracks</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="docs.html">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="index.html#how">How to Play</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#faq">FAQs</a></li>
+            <li><a href="https://github.com/1proprogrammerchant/project-ucc" target="_blank">Source Code</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Info</h4>
+          <p>Built with passion for the UCC community.</p>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">© 2026 Jerome Henry. Licensed for educational use.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made for the University of Commonwealth Caribbean</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/about.js"></script>
+  </body>
+</html>

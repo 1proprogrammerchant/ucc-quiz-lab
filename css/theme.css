@@ -1,0 +1,11 @@
+.site-header {
+  background: rgba(8, 11, 15, 0.72);
+}
+
+.hero {
+  background: linear-gradient(140deg, rgba(74, 163, 255, 0.18), transparent 60%);
+}
+
+.quiz-shell {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}

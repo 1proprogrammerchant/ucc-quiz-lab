@@ -1,0 +1,400 @@
+{
+  "questions": [
+    {
+      "track": "campus",
+      "question": "What is the best first move when you want to join a campus club?",
+      "choices": [
+        "Check the student activities board and social pages",
+        "Wait for someone to invite you",
+        "Skip meetings and just join the group chat",
+        "Only join during finals"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "Which habit keeps campus study sessions productive?",
+      "choices": [
+        "Set a clear agenda and time limit",
+        "Study with no breaks for six hours",
+        "Leave phones on full volume",
+        "Skip sleep to finish faster"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "A campus event sells out fast. What is a smart move?",
+      "choices": [
+        "Register early and add it to your calendar",
+        "Show up late and hope",
+        "Wait for a rumor",
+        "Ignore the RSVP"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "When networking on campus, what should you lead with?",
+      "choices": [
+        "A clear intro and what you are learning",
+        "Only your GPA",
+        "A long story about past high school wins",
+        "Silence"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What is a quick way to stay organized during the semester?",
+      "choices": [
+        "Use a planner with deadlines",
+        "Keep everything in your head",
+        "Never check email",
+        "Only plan after exams"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "How can you make the most of office hours?",
+      "choices": [
+        "Prepare specific questions beforehand",
+        "Show up without any plan",
+        "Only go when you're failing",
+        "Skip them entirely"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What's a good strategy for managing group projects?",
+      "choices": [
+        "Assign roles early and set milestones",
+        "Wait until the night before to start",
+        "Let one person do all the work",
+        "Avoid all communication"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "How should you approach a professor for a recommendation letter?",
+      "choices": [
+        "Ask early with your resume and goals",
+        "Demand one the day before it's due",
+        "Send a vague text message",
+        "Never provide any context"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What's the best way to prepare for midterm exams?",
+      "choices": [
+        "Start reviewing a week early with practice tests",
+        "Cram everything in one all-nighter",
+        "Skip classes and hope for the best",
+        "Only read the chapter titles"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "How can you build connections with classmates?",
+      "choices": [
+        "Join study groups and attend campus events",
+        "Never speak to anyone",
+        "Only interact during exams",
+        "Avoid all social situations"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What should you do if you're struggling in a course?",
+      "choices": [
+        "Reach out to the professor or TA early",
+        "Wait until after failing the final",
+        "Drop out immediately",
+        "Ignore the problem"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "How do you balance academics with extracurriculars?",
+      "choices": [
+        "Prioritize and schedule both effectively",
+        "Do only one and ignore the other",
+        "Overcommit to everything",
+        "Skip all activities"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What's a smart approach to internship hunting?",
+      "choices": [
+        "Start early and tailor each application",
+        "Apply the day before deadlines",
+        "Send the same generic resume everywhere",
+        "Never follow up"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "How can you make a good impression on the first day of class?",
+      "choices": [
+        "Arrive on time and introduce yourself",
+        "Show up 30 minutes late",
+        "Sleep through the entire class",
+        "Never say a word"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "campus",
+      "question": "What's the benefit of attending campus workshops?",
+      "choices": [
+        "Learn new skills and meet professionals",
+        "It's a waste of time",
+        "Only go to get free food",
+        "Sleep in instead"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What does an algorithm describe?",
+      "choices": [
+        "A step-by-step process to solve a problem",
+        "A computer brand",
+        "A type of keyboard",
+        "An art style"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which data structure is best for first-in, first-out behavior?",
+      "choices": [
+        "Queue",
+        "Stack",
+        "Tree",
+        "Graph"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What does HTML control on a web page?",
+      "choices": [
+        "Structure and content",
+        "Server hosting",
+        "Database queries",
+        "Hardware drivers"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "In CSS, what does a class selector start with?",
+      "choices": [
+        "A dot (.)",
+        "A hash (#)",
+        "A slash (/)",
+        "A dollar ($)"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which tool helps track changes in code over time?",
+      "choices": [
+        "Git",
+        "Photoshop",
+        "Slack",
+        "Bluetooth"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What does 'O(n)' mean in Big O notation?",
+      "choices": [
+        "Linear time complexity",
+        "Zero operations",
+        "Infinite loop",
+        "Number of outputs"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which programming paradigm focuses on functions without side effects?",
+      "choices": [
+        "Functional programming",
+        "Object-oriented programming",
+        "Procedural programming",
+        "Assembly programming"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is a pointer in C++?",
+      "choices": [
+        "A variable that stores a memory address",
+        "A mouse cursor",
+        "A type of loop",
+        "A graphics tool"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which HTTP method is used to retrieve data?",
+      "choices": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What does SQL stand for?",
+      "choices": [
+        "Structured Query Language",
+        "Simple Question Logic",
+        "System Quality Level",
+        "Software Query Link"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which sorting algorithm has O(n log n) average time complexity?",
+      "choices": [
+        "Merge Sort",
+        "Bubble Sort",
+        "Selection Sort",
+        "Insertion Sort"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is the purpose of a compiler?",
+      "choices": [
+        "Translate source code to machine code",
+        "Run code line by line",
+        "Design user interfaces",
+        "Manage databases"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which protocol is used for secure web communication?",
+      "choices": [
+        "HTTPS",
+        "FTP",
+        "SMTP",
+        "POP3"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is a REST API?",
+      "choices": [
+        "An architectural style for web services",
+        "A type of database",
+        "A programming language",
+        "A hardware component"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is the difference between '==' and '===' in JavaScript?",
+      "choices": [
+        "'===' checks type and value, '==' only checks value",
+        "They are identical",
+        "'==' is faster",
+        "'===' is deprecated"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is a virtual machine?",
+      "choices": [
+        "Software that emulates a physical computer",
+        "A cloud storage service",
+        "A type of monitor",
+        "A graphics card"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which design pattern ensures a class has only one instance?",
+      "choices": [
+        "Singleton",
+        "Factory",
+        "Observer",
+        "Strategy"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What does API stand for?",
+      "choices": [
+        "Application Programming Interface",
+        "Advanced Program Integration",
+        "Automated Process Indicator",
+        "Applied Protocol Internet"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is the purpose of a database index?",
+      "choices": [
+        "Speed up query performance",
+        "Store more data",
+        "Encrypt information",
+        "Delete old records"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "Which language is primarily used for Android app development?",
+      "choices": [
+        "Kotlin",
+        "Swift",
+        "Ruby",
+        "PHP"
+      ],
+      "answer": 0
+    },
+    {
+      "track": "cs",
+      "question": "What is recursion in programming?",
+      "choices": [
+        "A function that calls itself",
+        "A loop that never ends",
+        "A type of variable",
+        "A database operation"
+      ],
+      "answer": 0
+    }
+  ]
+}

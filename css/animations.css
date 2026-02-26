@@ -1,0 +1,67 @@
+[data-animate] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.bg-orbs::before,
+.bg-orbs::after {
+  content: "";
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  z-index: -1;
+  animation: float 14s ease-in-out infinite;
+}
+
+.orb-trail {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 163, 255, 0.35), transparent 65%);
+  top: 20vh;
+  right: 15vw;
+  filter: blur(30px);
+  opacity: 0.55;
+  z-index: -1;
+  animation: float 18s ease-in-out infinite;
+}
+
+.bg-orbs::before {
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.35), transparent 65%);
+  top: -120px;
+  left: -120px;
+}
+
+.bg-orbs::after {
+  background: radial-gradient(circle, rgba(92, 242, 199, 0.35), transparent 65%);
+  bottom: -120px;
+  right: -120px;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

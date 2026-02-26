@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guides & Tips - UCC Quiz Lab</title>
+    <meta name="description" content="Learn how to use UCC Quiz Lab and study tips for better learning." />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="logo">UCC Quiz Lab</a>
+        <nav class="nav-links">
+          <a href="index.html#quiz">Play</a>
+          <a href="index.html#tracks">Tracks</a>
+          <a href="about.html">About</a>
+          <a href="leaderboard.html">Scores</a>
+          <a href="docs.html" class="active">Guides</a>
+        </nav>
+        <div class="nav-socials">
+          <a class="btn btn-social" href="https://github.com/1proprogrammerchant" target="_blank" title="GitHub">Code</a>
+          <a class="btn btn-social" href="https://www.ucc.edu.jm/" target="_blank" title="UCC Website">UCC</a>
+        </div>
+        <button class="btn btn-ghost" id="themeToggle" type="button">Switch Vibe</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="padding: 60px 0 40px;">
+        <div class="container">
+          <h1 data-animate="fade-up">Guides & Tips</h1>
+          <p class="lede" data-animate="fade-up" data-delay="60">Master the quiz system and optimize your learning strategy.</p>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0;">
+        <div class="container">
+          <h2 data-animate="fade-up">Getting Started</h2>
+          <div class="steps-grid" style="margin-top: 40px;">
+            <div class="step" data-animate="fade-up" data-delay="60">
+              <div class="step-number">1</div>
+              <h3>Choose Your Track</h3>
+              <p>Pick between Campus Life (soft skills, networking) or CS Basics (technical concepts). Or tackle both!</p>
+            </div>
+            <div class="step" data-animate="fade-up" data-delay="120">
+              <div class="step-number">2</div>
+              <h3>Answer Questions</h3>
+              <p>Select your best answer. You'll get instant feedback: correct answers are marked in green.</p>
+            </div>
+            <div class="step" data-animate="fade-up" data-delay="180">
+              <div class="step-number">3</div>
+              <h3>Build Your Streak</h3>
+              <p>Keep nailing questions to build a streak! Each streak adds a multiplier to your final score.</p>
+            </div>
+            <div class="step" data-animate="fade-up" data-delay="240">
+              <div class="step-number">4</div>
+              <h3>Review Results</h3>
+              <p>See your percentage, letter grade, stars, and bonus score. Identify weak areas for improvement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(92, 242, 199, 0.08), transparent);">
+        <div class="container">
+          <h2 data-animate="fade-up">Study Tips</h2>
+          <div style="max-width: 800px; margin: 40px auto; display: grid; gap: 24px;">
+            <article class="feature-card" data-animate="fade-up" data-delay="60">
+              <h3>🎯 Focus on One Track</h3>
+              <p>Master Campus Life or CS Basics separately before mixing them. This helps you identify knowledge gaps faster.</p>
+            </article>
+            <article class="feature-card" data-animate="fade-up" data-delay="120">
+              <h3>🔄 Use Shuffle Mode</h3>
+              <p>Randomize questions to avoid memorizing patterns. This builds true understanding, not just recall.</p>
+            </article>
+            <article class="feature-card" data-animate="fade-up" data-delay="180">
+              <h3>📊 Track Your Streaks</h3>
+              <p>Aim to build your streak higher each time. Streaks show consistency and mastery of material.</p>
+            </article>
+            <article class="feature-card" data-animate="fade-up" data-delay="240">
+              <h3>🌙 Study in Dark Mode</h3>
+              <p>Long study sessions are easier on the eyes with dark mode. Less eye strain, better focus.</p>
+            </article>
+            <article class="feature-card" data-animate="fade-up" data-delay="300">
+              <h3>📱 Quiz on the Go</h3>
+              <p>Take quizzes on your phone during breaks. Short, frequent sessions beat long cramming.</p>
+            </article>
+            <article class="feature-card" data-animate="fade-up" data-delay="360">
+              <h3>🔍 Review Incorrect Answers</h3>
+              <p>Read questions you got wrong carefully. Understand the "why" behind correct answers.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0;">
+        <div class="container">
+          <h2 data-animate="fade-up">Understanding Your Score</h2>
+          <div style="max-width: 700px; margin-top: 40px;">
+            <h3 style="margin: 20px 0 12px; color: var(--accent);">Percentage Score</h3>
+            <p style="color: var(--muted); margin-bottom: 20px;">Your base score: (Correct Answers / Total Questions) × 100</p>
+
+            <h3 style="margin: 20px 0 12px; color: var(--accent-2);">Letter Grade</h3>
+            <p style="color: var(--muted); margin-bottom: 20px;">A (90+%), B (80-89%), C (70-79%), D (60-69%), F (below 60%)</p>
+
+            <h3 style="margin: 20px 0 12px; color: var(--accent-3);">Star Rating</h3>
+            <p style="color: var(--muted); margin-bottom: 20px;">⭐⭐⭐⭐⭐ (95%+), ⭐⭐⭐⭐ (85%+), and more. Visual representation of mastery.</p>
+
+            <h3 style="margin: 20px 0 12px; color: var(--accent);">Streak Bonus</h3>
+            <p style="color: var(--muted);">Final Score = Base Score × Streak Multiplier. Build longer streaks for bigger bonuses (up to 2.0x)!</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(74, 163, 255, 0.08), transparent);">
+        <div class="container">
+          <h2 data-animate="fade-up">Frequently Asked Questions</h2>
+          <div class="faq-grid" style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <details class="faq-item" data-animate="fade-up" data-delay="60">
+              <summary>Can I retake quizzes?</summary>
+              <p>Yes! Take any quiz unlimited times. Your best score and streaks are tracked automatically.</p>
+            </details>
+            <details class="faq-item" data-animate="fade-up" data-delay="120">
+              <summary>How does the streak system work?</summary>
+              <p>Each correct answer adds to your streak. A wrong answer resets it to 0. Your streak multiplier increases from 1.0x to 2.0x as your streak grows.</p>
+            </details>
+            <details class="faq-item" data-animate="fade-up" data-delay="180">
+              <summary>Are my scores saved?</summary>
+              <p>Scores are saved in your browser's local storage. They persist even after closing the tab.</p>
+            </details>
+            <details class="faq-item" data-animate="fade-up" data-delay="240">
+              <summary>What if I get a question wrong?</summary>
+              <p>You'll see the correct answer highlighted in green. Use this to learn and avoid making the same mistake again.</p>
+            </details>
+            <details class="faq-item" data-animate="fade-up" data-delay="300">
+              <summary>Can I skip questions?</summary>
+              <p>Yes! Click the "Skip" button to move to the next question without answering. Skipped questions count as incorrect for scoring.</p>
+            </details>
+            <details class="faq-item" data-animate="fade-up" data-delay="360">
+              <summary>How many questions are there?</summary>
+              <p>40 total questions: 20 about Campus Life and 20 about CS Basics. You can filter by track or tackle all of them.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container cta-box">
+          <h2 data-animate="fade-up">Ready to master the quiz?</h2>
+          <p data-animate="fade-up" data-delay="60">Put these tips into action and build an unbeatable streak.</p>
+          <a href="index.html#quiz" class="btn btn-primary btn-lg" data-animate="fade-up" data-delay="120">Start Learning Now</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-section">
+          <h4>UCC Quiz Lab</h4>
+          <p>A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/1proprogrammerchant" target="_blank">GitHub</a>
+            <a href="https://www.ucc.edu.jm/" target="_blank">UCC</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#quiz">Start Quiz</a></li>
+            <li><a href="index.html#tracks">Pick Tracks</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="docs.html">Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="index.html#how">How to Play</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#faq">FAQs</a></li>
+            <li><a href="https://github.com/1proprogrammerchant/project-ucc" target="_blank">Source Code</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Info</h4>
+          <p>Built with passion for the UCC community.</p>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">© 2026 Jerome Henry. Licensed for educational use.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made for the University of Commonwealth Caribbean</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/docs.js"></script>
+  </body>
+</html>
