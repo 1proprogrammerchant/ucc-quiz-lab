@@ -2,7 +2,7 @@
 
 Playful, animated quiz site for the University of Commonwealth Caribbean.
 
-Built by **Jerome Henry** (GitHub: [1proprogrammerchant](https://github.com/1proprogrammerchant))
+Built by **Me** (GitHub: [1proprogrammerchant](https://github.com/1proprogrammerchant))
 
 ## Features
 
@@ -118,4 +118,5 @@ vercel
 Copyright (c) 2026 Jerome Henry (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
 
