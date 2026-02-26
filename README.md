@@ -115,8 +115,9 @@ vercel
 
 **MIT License** - See [LICENSE](LICENSE) for details.
 
-Copyright (c) 2026 Jerome Henry (1proprogrammerchant)
+Copyright (c) 2026 Me (1proprogrammerchant)
 
 Created for educational purposes at the University of Commonwealth Caribbean.
+
 
 
