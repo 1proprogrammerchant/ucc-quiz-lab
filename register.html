@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register - UCC Quiz Lab</title>
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;">
+    <form id="registerForm" style="max-width:420px;width:100%;background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.08);">
+      <h2 style="margin:0 0 12px;font-family:Work Sans,Inter,system-ui;font-weight:700;">Create account</h2>
+      <label style="display:block;margin-bottom:8px;font-size:0.85rem;color:#333;">Username</label>
+      <input name="username" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:12px;" />
+      <label style="display:block;margin-bottom:8px;font-size:0.85rem;color:#333;">Password</label>
+      <input name="password" type="password" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:16px;" />
+      <label style="display:block;margin-bottom:8px;font-size:0.85rem;color:#333;">Email (optional)</label>
+      <input name="email" type="email" placeholder="you@example.com" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:12px;" />
+      <label style="display:block;margin-bottom:8px;font-size:0.85rem;color:#333;"><input name="email_notify" type="checkbox" style="margin-right:8px;"> Email me notifications</label>
+      <div id="registerMessage" style="height:18px;margin-bottom:12px;color:#b91c1c;font-size:0.9rem"></div>
+      <button type="submit" style="width:100%;padding:12px;border-radius:10px;background:#002975;color:white;border:none;font-weight:700;">Create account</button>
+      <p style="margin-top:12px;font-size:0.9rem;color:#555;">Already have an account? <a href="login.html" style="color:#002975;font-weight:700;">Sign in</a></p>
+    </form>
+  </main>
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const body = { username: f.get('username'), password: f.get('password'), email: f.get('email'), email_notify: f.get('email_notify') ? 1 : 0 };
+      const msg = document.getElementById('registerMessage');
+      try {
+        const res = await fetch('/api/register', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+        const data = await res.json();
+        if (res.ok && data.ok) {
+          window.location.href = data.redirect || '/index.html';
+        } else {
+          msg.textContent = data.message || 'Registration failed';
+        }
+      } catch (err) { msg.textContent = 'Network error'; }
+    });
+  </script>
+</body>
+</html>

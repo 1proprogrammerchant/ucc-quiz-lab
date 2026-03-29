@@ -1,128 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Leaderboard - UCC Quiz Lab</title>
-    <meta name="description" content="View top scores and your performance on UCC Quiz Lab." />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/theme.css" />
-  </head>
-  <body>
-    <div class="bg-orbs" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="index.html" class="logo">UCC Quiz Lab</a>
-        <nav class="nav-links">
-          <a href="index.html#quiz">Play</a>
-          <a href="index.html#tracks">Tracks</a>
-          <a href="about.html">About</a>
-          <a href="leaderboard.html" class="active">Scores</a>
-          <a href="docs.html">Guides</a>
-        </nav>
-        <div class="nav-socials">
-          <a class="btn btn-social" href="https://github.com/1proprogrammerchant" target="_blank" title="GitHub">Code</a>
-          <a class="btn btn-social" href="https://www.ucc.edu.jm/" target="_blank" title="UCC Website">UCC</a>
-        </div>
-        <button class="btn btn-ghost" id="themeToggle" type="button">Switch Vibe</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" style="padding: 60px 0 40px;">
-        <div class="container">
-          <h1 data-animate="fade-up">Your Scores</h1>
-          <p class="lede" data-animate="fade-up" data-delay="60">Track your progress and see how you stack up.</p>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0;">
-        <div class="container">
-          <h2 data-animate="fade-up">Performance Stats</h2>
-          <div class="stats-grid" style="margin-top: 40px;">
-            <div class="stat-card" data-animate="fade-up" data-delay="60">
-              <p class="stat-number" id="totalQuizzes">0</p>
-              <p class="stat-label">Quizzes Taken</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="120">
-              <p class="stat-number" id="avgScore">--</p>
-              <p class="stat-label">Average Score</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="180">
-              <p class="stat-number" id="bestScore">--</p>
-              <p class="stat-label">Best Score</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="240">
-              <p class="stat-number" id="longestStreak">0</p>
-              <p class="stat-label">Longest Streak</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(74, 163, 255, 0.08), transparent);">
-        <div class="container">
-          <h2 data-animate="fade-up">Recent Attempts</h2>
-          <div id="recentScores" style="margin-top: 40px;">
-            <p style="color: var(--muted); text-align: center;">No scores yet. Take your first quiz to see them here!</p>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0;">
-        <div class="container cta-box">
-          <h2 data-animate="fade-up">Start building your streak</h2>
-          <p data-animate="fade-up" data-delay="60">Take a quiz and see your scores appear here.</p>
-          <a href="index.html#quiz" class="btn btn-primary btn-lg" data-animate="fade-up" data-delay="120">Take the Quiz</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-section">
-          <h4>UCC Quiz Lab</h4>
-          <p>A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
-          <div class="footer-socials">
-            <a href="https://github.com/1proprogrammerchant" target="_blank">GitHub</a>
-            <a href="https://www.ucc.edu.jm/" target="_blank">UCC</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html#quiz">Start Quiz</a></li>
-            <li><a href="index.html#tracks">Pick Tracks</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
-            <li><a href="docs.html">Guides</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Learn</h4>
-          <ul>
-            <li><a href="index.html#how">How to Play</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-            <li><a href="https://github.com/1proprogrammerchant/ucc-quiz-lab" target="_blank">Source Code</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Info</h4>
-          <p>Built with passion for the UCC community.</p>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">© 2026 Jerome Henry. Licensed for educational use.</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Made for the University of Commonwealth Caribbean</p>
-      </div>
-    </footer>
-
-    <script type="module" src="js/leaderboard.js"></script>
-  </body>
-</html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UCC Quiz Lab - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "primary-fixed": "#dbe1ff",
+              "on-secondary-fixed": "#251a00",
+              "inverse-on-surface": "#f1f1f1",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#e4e2e1",
+              "inverse-primary": "#b4c5ff",
+              "on-tertiary-container": "#b5b4b3",
+              "tertiary-container": "#464646",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#033ea6",
+              "inverse-surface": "#2f3131",
+              "primary-fixed-dim": "#b4c5ff",
+              "on-primary-container": "#98b1ff",
+              "on-secondary-container": "#6f5400",
+              "primary": "#002975",
+              "on-background": "#1a1c1c",
+              "surface-dim": "#dadada",
+              "on-surface": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "surface-tint": "#2d58bf",
+              "secondary-fixed": "#ffdf99",
+              "secondary": "#775a00",
+              "surface": "#f9f9f9",
+              "on-primary-fixed": "#00174b",
+              "on-secondary-fixed-variant": "#5a4300",
+              "secondary-container": "#ffc72c",
+              "outline": "#747684",
+              "on-primary": "#ffffff",
+              "surface-container": "#eeeeee",
+              "on-error-container": "#93000a",
+              "background": "#f9f9f9",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e2e2e2",
+              "surface-container-lowest": "#ffffff",
+              "outline-variant": "#c4c6d5",
+              "secondary-fixed-dim": "#f6bf22",
+              "on-tertiary-fixed-variant": "#474746",
+              "surface-container-low": "#f3f3f3",
+              "surface-variant": "#e2e2e2",
+              "primary-container": "#003da5",
+              "on-surface-variant": "#434653",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "on-tertiary-fixed": "#1b1c1c",
+              "tertiary": "#303030"
+            },
+            fontFamily: {
+              "headline": ["Work Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #002975 0%, #003da5 100%);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1c1c;
+        }
+        h1, h2, h3 {
+            font-family: 'Work Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 shadow-none z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 brand-gradient rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-blue-900 dark:text-blue-500 font-headline leading-tight">Quiz Lab</h2>
+<p class="text-xs text-slate-500 font-label">Digital Athenaeum</p>
+</div>
+</div>
+<nav class="mt-8 flex-grow">
+<!-- Dashboard Tab (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 text-blue-900 dark:text-white border-l-4 border-amber-600 bg-white dark:bg-slate-800 font-bold font-['Work_Sans'] font-medium text-sm transition-all translate-x-1 duration-300" href="index.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="index.html">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="leaderboard.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Results</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="about.html">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span>Study Lab</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="leaderboard.html">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Leaderboard</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200/50">
+<button data-action="start-quiz" class="w-full py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm hover:brightness-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+<span>Start New Quiz</span>
+</button>
+</div>
+<div class="mb-6">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:bg-white transition-all font-['Work_Sans'] font-medium text-sm" href="settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a data-action="logout" class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:bg-white transition-all font-['Work_Sans'] font-medium text-sm" href="login.html">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Mobile/Shared Content) -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-6 h-16 w-full bg-white dark:bg-slate-900 shadow-sm md:ml-64 md:w-[calc(100%-16rem)] border-none">
+<div class="flex items-center gap-4">
+  <button id="siteLogo" aria-label="UCC Quiz Lab home" class="md:hidden w-8 h-8 brand-gradient rounded-lg flex items-center justify-center">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="24" height="24" rx="4" fill="#002975"/>
+      <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-family="Work Sans, Inter, sans-serif" font-weight="700" font-size="8">UCC</text>
+    </svg>
+  </button>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search resources..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-amber-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div data-action="open-profile" class="h-8 w-8 rounded-full overflow-hidden border-2 border-primary/10" style="cursor:pointer;">
+  <img alt="User Profile Avatar" data-alt="Close up portrait of a university student smiling warmly with professional indoor lighting and blurred library shelves background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxvJOTDR2vxdfZUKseCdbVLLJ5IvW-L1ovFuSDOR7jYe-9bGutE3I5skZHXKxYq-8219l-aXncHT4RDDQdSEtR2c_4CSgbACNv89tK2BRZcRhlGuQH-hAnd-rZ1nLmxEZ6iembOMYtSPE_sQNf9sWv1l32081Cn5lZLQGbRwxZHJzDcfGRph8dtVKybqdQGs3l8Uy7lzAlRfGypLqlr0HrW2T6wlattxvTBbFIt2WWv4Djiy4V4Xx4Da70ni_Osm2zdtPnxJuH6cE5" style="width:100%;height:100%;object-fit:cover;"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 p-6 lg:p-10 min-h-screen">
+<!-- Welcome Hero Section -->
+<section class="mb-10 relative rounded-[2rem] overflow-hidden p-8 lg:p-12 brand-gradient text-white">
+<div class="relative z-10 max-w-2xl">
+<p class="font-label text-amber-400 font-semibold mb-2 uppercase tracking-widest text-xs">UCC Academic Portal</p>
+<h1 class="text-4xl lg:text-6xl font-headline font-black mb-4 tracking-tight leading-tight">Welcome back, <span id="profileName">Guest</span>.</h1>
+<p id="pendingText" class="text-on-primary-container text-lg opacity-90 font-body leading-relaxed max-w-md">Your digital wing of the Athenaeum is ready. You have <span id="pendingCount">-</span> quizzes pending completion today.</p>
+<div class="mt-8 flex gap-4">
+<button class="px-6 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                        Resume Advanced Stats
+                    </button>
+<button class="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all">
+                        View Coursework
+                    </button>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[20rem] absolute -top-10 -right-10" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+</section>
+<!-- Bento Grid: Stats & Ongoing -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Quick Stats Column -->
+<div class="lg:col-span-1 space-y-6">
+<!-- Academic Standing Card -->
+<div class="bg-surface-container-lowest p-6 rounded-[2rem] shadow-[0_20px_40px_rgba(0,41,117,0.06)] relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-slate-100 rounded-2xl">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full uppercase tracking-tighter">+0.2 this term</span>
+</div>
+<h3 class="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Academic GPA</h3>
+<div class="flex items-baseline gap-2">
+<span id="userAvgScore" class="text-5xl font-headline font-black text-primary">-</span>
+<span class="text-slate-400 font-body text-sm">/ 4.0</span>
+</div>
+</div>
+<!-- Progress Circle Card -->
+<div class="bg-surface-container-lowest p-6 rounded-[2rem] shadow-[0_20px_40px_rgba(0,41,117,0.06)]">
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="font-headline font-bold text-lg text-slate-800">Top Students</h3>
+    <span class="material-symbols-outlined text-amber-500">emoji_events</span>
+  </div>
+  <div id="leaders" class="space-y-4">
+    <!-- loaded dynamically -->
+  </div>
+  <button id="refreshLeaders" class="w-full mt-6 py-2 text-xs font-bold text-primary hover:bg-slate-50 rounded-lg border border-slate-100 transition-colors">Refresh Leaderboard</button>
+  <div id="leaderPager" class="mt-4 flex items-center justify-between">
+    <div id="leaderPagerInfo" class="text-sm text-slate-500">&nbsp;</div>
+    <div class="flex gap-2">
+      <button id="leaderPrev" class="px-3 py-1 rounded bg-slate-100 text-sm font-medium">Prev</button>
+      <button id="leaderNext" class="px-3 py-1 rounded bg-slate-100 text-sm font-medium">Next</button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Ongoing Quizzes Column -->
+<div class="lg:col-span-2">
+<div class="bg-surface-container-low p-8 rounded-[2rem] h-full">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-2xl font-headline font-black text-slate-900 tracking-tight">Active Assessments</h2>
+<p class="text-slate-500 text-sm">Pick up where you left off in your study modules.</p>
+</div>
+<button class="text-primary font-bold text-sm hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Quiz Item 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 hover:shadow-md transition-all border border-transparent hover:border-slate-200">
+<div class="flex items-center gap-6 w-full sm:w-auto">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img alt="Corporate Finance" data-alt="Modern high-rise office building reflection in glass window at sunset with blue and gold hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5O7oCAG99MYZ9p6iXCHb6QZtqhklS93GqsmkpZSMLL3LjdTN7QqjtiaPqlNlY9oFuMmlQSXb8AVUknjqbn1DE1WtKjLweHmlFK17Y-AphY2ELTO4o0TI7Pi19SJFlhPJRmYFpQWKkJjXAo8rKVGW99sQSXdrHZ0LByq9P2AVGIYnnKP3sjyzUKR72hq4-etmIFqhLjjnsQWZul6kUpgTWlToDRvaeSo1jVpHkINopBXIAWVgYu0lC1fZ5-oKfztQ3YdWZhu_hfGXT"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg text-slate-800 leading-tight">Corporate Finance II</h4>
+<p class="text-slate-500 text-sm">Module 4: Risk Management</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-sm text-amber-500">schedule</span>
+<span class="text-xs font-bold text-slate-400">12m remaining</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto justify-end">
+<div class="text-right">
+<p class="text-xs text-slate-400 font-bold uppercase mb-1">Progress</p>
+<p class="text-primary font-bold">14/20 Questions</p>
+</div>
+<button class="w-12 h-12 rounded-full brand-gradient text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Quiz Item 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 hover:shadow-md transition-all border border-transparent hover:border-slate-200">
+<div class="flex items-center gap-6 w-full sm:w-auto">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img alt="Database Systems" data-alt="Abstract server room glowing blue lights and fiber optic cables in dark data center environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN5HecxyZCZbrbqXJy5eYGviAtyRIBckJKr041sckgDa-K89_ZC15cR6PnKVSv8mvxmVjdN6omqoy5bXgZUf5NIDm35QaPgEibgMGeBmP2YVoM0b3C1sMpGN4876tpW0xQhZehGOtNaLHApjCw7WshqRbXyEbmgX6nes5Ne6SYQy2u44Ezi5wVoS9qg3vxTqaBDpky5ojYHRYJJHl7UoYr4vQoyA8u5utNcMBjDMi5xgBa5KTOwM1seLiP3o7UtjICxcRANLjs2kIc"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg text-slate-800 leading-tight">Database Systems</h4>
+<p class="text-slate-500 text-sm">Final Term Examination</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-sm text-red-500">priority_high</span>
+<span class="text-xs font-bold text-red-500">Due in 4 hours</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto justify-end">
+<div class="text-right">
+<p class="text-xs text-slate-400 font-bold uppercase mb-1">Status</p>
+<p class="text-slate-600 font-bold">Not Started</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-slate-100 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Weekly Performance Chart Section (Visual Placeholder) -->
+<section class="mt-10 bg-white p-8 rounded-[2rem] shadow-[0_20px_40px_rgba(0,41,117,0.04)]">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
+<div>
+<h2 class="text-2xl font-headline font-black text-slate-900 tracking-tight">Learning Velocity</h2>
+<p class="text-slate-500 text-sm">How your test scores are trending over the last 30 days.</p>
+</div>
+<div class="flex bg-slate-100 p-1 rounded-xl">
+<button class="px-4 py-2 bg-white shadow-sm rounded-lg text-xs font-bold text-primary">Score Trend</button>
+<button class="px-4 py-2 text-xs font-bold text-slate-500">Time Spent</button>
+<button class="px-4 py-2 text-xs font-bold text-slate-500">Accuracy</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-4 border-b border-slate-100">
+<div class="w-full bg-slate-50 rounded-t-xl h-[40%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">72%</div>
+</div>
+<div class="w-full bg-slate-50 rounded-t-xl h-[55%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">78%</div>
+</div>
+<div class="w-full brand-gradient rounded-t-xl h-[85%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">94%</div>
+</div>
+<div class="w-full bg-slate-50 rounded-t-xl h-[65%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">82%</div>
+</div>
+<div class="w-full bg-slate-50 rounded-t-xl h-[70%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">85%</div>
+</div>
+<div class="w-full bg-slate-50 rounded-t-xl h-[60%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">79%</div>
+</div>
+<div class="w-full bg-amber-400 rounded-t-xl h-[92%] group relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">96%</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white h-16 flex items-center justify-around z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] border-none">
+<a class="flex flex-col items-center gap-1 text-primary" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="index.html">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px] font-bold">Courses</span>
+</a>
+<div class="relative -top-6">
+<button class="w-14 h-14 brand-gradient rounded-full text-white shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="leaderboard.html">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold">Results</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="about.html">
+<span class="material-symbols-outlined">biotech</span>
+<span class="text-[10px] font-bold">Lab</span>
+</a>
+</nav>
+<script src="js/main.js"></script>
+</body></html>

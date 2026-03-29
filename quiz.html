@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz - UCC Quiz Lab</title>
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;">
+    <div id="quizRoot" style="max-width:900px;width:100%;background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.06);">
+      <h1 id="quizTitle" style="margin-top:0;font-family:Work Sans,Inter,system-ui;">Loading quiz…</h1>
+      <p id="quizDesc" style="color:#555;">Please wait while the quiz loads.</p>
+      <hr style="margin:18px 0;"/>
+      <form id="quizForm"></form>
+      <div style="margin-top:18px;display:flex;gap:12px;align-items:center;">
+        <button id="submitQuiz" type="button" style="padding:10px 16px;border-radius:8px;background:#002975;color:#fff;border:none;font-weight:700;">Submit</button>
+        <a href="quizzes.html" style="align-self:center;color:#333;font-weight:600;">Back to quizzes</a>
+      </div>
+      <p id="quizMessage" style="margin-top:12px;font-weight:700;"></p>
+    </div>
+  </main>
+  <script>
+    function qs(name){
+      const params = new URLSearchParams(location.search);
+      return params.get(name);
+    }
+    const quizId = qs('id') || 'ucc-60';
+    let quizData = null;
+
+    const QUESTION_BANK = [
+      { id: 1, prompt: 'What does HTML stand for?', choices: ['HyperText Markup Language', 'HighText Machine Language', 'Hyperlinks and Text Markup Language', 'Home Tool Markup Language'], correct_index: 0 },
+      { id: 2, prompt: 'Which CSS property changes text color?', choices: ['font-style', 'color', 'background-color', 'text-transform'], correct_index: 1 },
+      { id: 3, prompt: 'Which JavaScript method converts JSON text into an object?', choices: ['JSON.stringify()', 'JSON.object()', 'JSON.parse()', 'JSON.convert()'], correct_index: 2 },
+      { id: 4, prompt: 'Which Python keyword defines a function?', choices: ['function', 'fun', 'lambda', 'def'], correct_index: 3 },
+      { id: 5, prompt: 'What tag creates a hyperlink in HTML?', choices: ['<a>', '<link>', '<href>', '<url>'], correct_index: 0 },
+      { id: 6, prompt: 'Which CSS display value enables Flexbox layout?', choices: ['block', 'flex', 'inline', 'grid'], correct_index: 1 },
+      { id: 7, prompt: 'Which symbol starts a single-line comment in JavaScript?', choices: ['#', '<!--', '//', '/*'], correct_index: 2 },
+      { id: 8, prompt: 'Which Docker command builds an image from a Dockerfile?', choices: ['docker create', 'docker compile', 'docker make', 'docker build'], correct_index: 3 },
+      { id: 9, prompt: 'What does CSS stand for?', choices: ['Cascading Style Sheets', 'Computer Style Syntax', 'Creative Style System', 'Colorful Style Sheets'], correct_index: 0 },
+      { id: 10, prompt: 'Which HTML attribute provides alternate text for images?', choices: ['title', 'alt', 'src', 'caption'], correct_index: 1 },
+      { id: 11, prompt: 'Which JavaScript keyword declares a block-scoped variable?', choices: ['var', 'constvar', 'let', 'scope'], correct_index: 2 },
+      { id: 12, prompt: 'Which C++ container stores key-value pairs?', choices: ['vector', 'array', 'queue', 'map'], correct_index: 3 },
+      { id: 13, prompt: 'Which HTML element is used for the largest heading?', choices: ['<h1>', '<head>', '<h6>', '<header>'], correct_index: 0 },
+      { id: 14, prompt: 'Which CSS unit is relative to the root font size?', choices: ['em', 'rem', 'px', '%'], correct_index: 1 },
+      { id: 15, prompt: 'Which JavaScript method adds an item to the end of an array?', choices: ['append()', 'add()', 'push()', 'insert()'], correct_index: 2 },
+      { id: 16, prompt: 'In Python, what type is returned by input()?', choices: ['int', 'float', 'bool', 'str'], correct_index: 3 },
+      { id: 17, prompt: 'Which HTML tag creates an unordered list?', choices: ['<ul>', '<ol>', '<li>', '<list>'], correct_index: 0 },
+      { id: 18, prompt: 'Which CSS property controls the outside spacing of an element?', choices: ['padding', 'margin', 'border', 'gap'], correct_index: 1 },
+      { id: 19, prompt: 'Which JavaScript operator checks both value and type equality?', choices: ['==', '=', '===', '!='], correct_index: 2 },
+      { id: 20, prompt: 'Which Docker command starts services from docker-compose.yml?', choices: ['docker compose run', 'docker compose init', 'docker compose start', 'docker compose up'], correct_index: 3 },
+      { id: 21, prompt: 'Which HTML element is used to embed JavaScript?', choices: ['script tag', 'js tag', 'code tag', 'javascript tag'], correct_index: 0 },
+      { id: 22, prompt: 'Which CSS property rounds element corners?', choices: ['corner-radius', 'border-radius', 'curve', 'round'], correct_index: 1 },
+      { id: 23, prompt: 'Which JavaScript array method creates a new array with transformed items?', choices: ['forEach()', 'filter()', 'map()', 'reduce()'], correct_index: 2 },
+      { id: 24, prompt: 'Which Python collection is immutable?', choices: ['list', 'dict', 'set', 'tuple'], correct_index: 3 },
+      { id: 25, prompt: 'Which HTML input type hides typed characters?', choices: ['password', 'secret', 'hidden', 'private'], correct_index: 0 },
+      { id: 26, prompt: 'Which CSS property controls text size?', choices: ['font-weight', 'font-size', 'text-size', 'size'], correct_index: 1 },
+      { id: 27, prompt: 'Which JavaScript method removes the last item from an array?', choices: ['shift()', 'remove()', 'pop()', 'delete()'], correct_index: 2 },
+      { id: 28, prompt: 'Which C++ keyword creates an object from a class?', choices: ['class', 'make', 'create', 'new'], correct_index: 3 },
+      { id: 29, prompt: 'Which HTML element defines table rows?', choices: ['<tr>', '<td>', '<th>', '<row>'], correct_index: 0 },
+      { id: 30, prompt: 'Which CSS layout system is two-dimensional?', choices: ['flexbox', 'grid', 'inline-block', 'float'], correct_index: 1 },
+      { id: 31, prompt: 'Which JavaScript function converts a string to an integer?', choices: ['Number.toInt()', 'toInteger()', 'parseInt()', 'int()'], correct_index: 2 },
+      { id: 32, prompt: 'Which Python keyword handles exceptions?', choices: ['check', 'catch', 'handle', 'try'], correct_index: 3 },
+      { id: 33, prompt: 'Which HTML tag is used for line breaks?', choices: ['<br>', '<lb>', '<break>', '<hr>'], correct_index: 0 },
+      { id: 34, prompt: 'Which CSS property changes the mouse cursor style?', choices: ['pointer', 'cursor', 'mouse', 'hover-cursor'], correct_index: 1 },
+      { id: 35, prompt: 'Which JavaScript object method lists only an object\'s own keys?', choices: ['Object.list()', 'Object.allKeys()', 'Object.keys()', 'Object.entries()'], correct_index: 2 },
+      { id: 36, prompt: 'Which Dockerfile instruction sets the default runtime command?', choices: ['RUN', 'BUILD', 'SET', 'CMD'], correct_index: 3 },
+      { id: 37, prompt: 'Which HTML tag defines the document body?', choices: ['<body>', '<main>', '<content>', '<section>'], correct_index: 0 },
+      { id: 38, prompt: 'Which CSS property sets the thickness of text?', choices: ['font-size', 'font-weight', 'text-style', 'weight'], correct_index: 1 },
+      { id: 39, prompt: 'Which JavaScript method joins array elements into a string?', choices: ['concat()', 'merge()', 'join()', 'combine()'], correct_index: 2 },
+      { id: 40, prompt: 'Which Python keyword exits a loop early?', choices: ['stop', 'exit', 'continue', 'break'], correct_index: 3 },
+      { id: 41, prompt: 'Which HTML tag is used for numbered lists?', choices: ['<ol>', '<ul>', '<li>', '<dl>'], correct_index: 0 },
+      { id: 42, prompt: 'Which CSS property changes background color?', choices: ['color', 'background-color', 'bgcolor', 'fill'], correct_index: 1 },
+      { id: 43, prompt: 'Which JavaScript keyword creates a class?', choices: ['constructor', 'object', 'class', 'prototype'], correct_index: 2 },
+      { id: 44, prompt: 'In C++, which operator accesses members via a pointer?', choices: ['.', '::', ':', '->'], correct_index: 3 },
+      { id: 45, prompt: 'Which HTML attribute specifies where to send form data?', choices: ['action', 'method', 'target', 'name'], correct_index: 0 },
+      { id: 46, prompt: 'Which CSS property controls transparency?', choices: ['visibility', 'opacity', 'alpha', 'transparent'], correct_index: 1 },
+      { id: 47, prompt: 'Which JavaScript statement handles multiple conditions?', choices: ['if', 'else if', 'switch', 'case'], correct_index: 2 },
+      { id: 48, prompt: 'Which Python statement defines an anonymous function?', choices: ['def', 'func', 'anon', 'lambda'], correct_index: 3 },
+      { id: 49, prompt: 'Which HTML tag embeds an image?', choices: ['<img>', '<image>', '<pic>', '<src>'], correct_index: 0 },
+      { id: 50, prompt: 'Which CSS property aligns items on the cross axis in Flexbox?', choices: ['justify-content', 'align-items', 'place-items', 'align-content'], correct_index: 1 },
+      { id: 51, prompt: 'Which JavaScript method returns the first matching DOM element?', choices: ['getElement()', 'findElement()', 'querySelector()', 'selectOne()'], correct_index: 2 },
+      { id: 52, prompt: 'Which Docker command lists local images?', choices: ['docker ls', 'docker show', 'docker view', 'docker images'], correct_index: 3 },
+      { id: 53, prompt: 'Which HTML tag is used for a generic container?', choices: ['<div>', '<container>', '<span>', '<group>'], correct_index: 0 },
+      { id: 54, prompt: 'Which CSS property controls stacking order?', choices: ['layer', 'z-index', 'stack-order', 'priority'], correct_index: 1 },
+      { id: 55, prompt: 'Which JavaScript method converts an object to a JSON string?', choices: ['JSON.parse()', 'JSON.toString()', 'JSON.stringify()', 'JSON.encode()'], correct_index: 2 },
+      { id: 56, prompt: 'Which Python type stores key-value pairs?', choices: ['list', 'tuple', 'set', 'dict'], correct_index: 3 },
+      { id: 57, prompt: 'Which HTML tag defines a paragraph?', choices: ['<p>', '<para>', '<text>', '<article>'], correct_index: 0 },
+      { id: 58, prompt: 'Which CSS property controls whether overflow is clipped, scrolled, or visible?', choices: ['clip', 'overflow', 'scroll', 'display-overflow'], correct_index: 1 },
+      { id: 59, prompt: 'Which JavaScript method removes leading and trailing whitespace from a string?', choices: ['strip()', 'clean()', 'trim()', 'slice()'], correct_index: 2 },
+      { id: 60, prompt: 'Which Docker command removes a container?', choices: ['docker delete', 'docker remove-image', 'docker clear', 'docker rm'], correct_index: 3 }
+    ];
+    async function loadQuiz(){
+      const root = document.getElementById('quizRoot');
+      const title = document.getElementById('quizTitle');
+      const desc = document.getElementById('quizDesc');
+      const form = document.getElementById('quizForm');
+      const msg = document.getElementById('quizMessage');
+      try{
+        quizData = {
+          ok: true,
+          quiz: { id: quizId, title: 'UCC Quiz Lab - 60 Question Challenge' },
+          questions: QUESTION_BANK
+        };
+        title.textContent = quizData.quiz.title;
+        desc.textContent = 'Answer all 60 questions. Each question has options a, b, c, d.';
+        form.innerHTML = '';
+        quizData.questions.forEach((q, i)=>{
+          const qDiv = document.createElement('div');
+          qDiv.style.marginBottom = '14px';
+          const prompt = document.createElement('div');
+          prompt.style.fontWeight = '700';
+          prompt.textContent = (i+1) + ') ' + q.prompt;
+          qDiv.appendChild(prompt);
+          (q.choices||[]).forEach((c, ci)=>{
+            const label = document.createElement('label');
+            label.style.display = 'block';
+            label.style.marginTop = '6px';
+            const inp = document.createElement('input');
+            inp.type = 'radio';
+            inp.name = 'q_' + q.id;
+            inp.value = String(ci);
+            label.appendChild(inp);
+            label.appendChild(document.createTextNode(' ' + String.fromCharCode(97 + ci) + ') ' + c));
+            qDiv.appendChild(label);
+          });
+          form.appendChild(qDiv);
+        });
+      }catch(e){
+        title.textContent = 'Quiz load error';
+        desc.textContent = e.message || String(e);
+        form.innerHTML = '';
+      }
+    }
+
+    document.getElementById('submitQuiz').addEventListener('click', async ()=>{
+      const msg = document.getElementById('quizMessage');
+      if (!quizData) { msg.style.color='#b91c1c'; msg.textContent = 'Quiz not loaded.'; return; }
+      let correct = 0, total = quizData.questions.length;
+      quizData.questions.forEach(q=>{
+        const sel = document.querySelector('input[name="q_' + q.id + '"]:checked');
+        if (sel && parseInt(sel.value,10) === q.correct_index) correct += 1;
+      });
+      const score = Math.round((correct / Math.max(1,total)) * 100);
+      msg.style.color='#157a00';
+      msg.textContent = `You scored ${score}% (${correct}/${total}) - submitting...`;
+      try{
+        const res = await fetch('/api/submit-score', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ quiz_id: quizId, score }) });
+        const data = await res.json();
+        if (res.ok && data.ok) {
+          msg.textContent = 'Score submitted - redirecting to profile...';
+          setTimeout(()=> location.href = 'profile.html', 800);
+        } else {
+          msg.style.color = '#b91c1c';
+          msg.textContent = data.message || 'Failed to submit score.';
+        }
+      }catch(e){
+        console.error(e);
+        msg.style.color = '#b91c1c';
+        msg.textContent = 'Network error: could not reach backend.';
+      }
+    });
+
+    loadQuiz();
+  </script>
+</body>
+</html>

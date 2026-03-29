@@ -1,206 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guides & Tips - UCC Quiz Lab</title>
-    <meta name="description" content="Learn how to use UCC Quiz Lab and study tips for better learning." />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/theme.css" />
-  </head>
-  <body>
-    <div class="bg-orbs" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="index.html" class="logo">UCC Quiz Lab</a>
-        <nav class="nav-links">
-          <a href="index.html#quiz">Play</a>
-          <a href="index.html#tracks">Tracks</a>
-          <a href="about.html">About</a>
-          <a href="leaderboard.html">Scores</a>
-          <a href="docs.html" class="active">Guides</a>
-        </nav>
-        <div class="nav-socials">
-          <a class="btn btn-social" href="https://github.com/1proprogrammerchant" target="_blank" title="GitHub">Code</a>
-          <a class="btn btn-social" href="https://www.ucc.edu.jm/" target="_blank" title="UCC Website">UCC</a>
-        </div>
-        <button class="btn btn-ghost" id="themeToggle" type="button">Switch Vibe</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" style="padding: 60px 0 40px;">
-        <div class="container">
-          <h1 data-animate="fade-up">Guides & Tips</h1>
-          <p class="lede" data-animate="fade-up" data-delay="60">Master the quiz system and optimize your learning strategy.</p>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0;">
-        <div class="container">
-          <h2 data-animate="fade-up">Getting Started</h2>
-          <div class="steps-grid" style="margin-top: 40px;">
-            <div class="step" data-animate="fade-up" data-delay="60">
-              <div class="step-number">1</div>
-              <h3>Choose Your Track</h3>
-              <p>Pick between Campus Life (soft skills, networking) or CS Basics (technical concepts). Or tackle both!</p>
-            </div>
-            <div class="step" data-animate="fade-up" data-delay="120">
-              <div class="step-number">2</div>
-              <h3>Answer Questions</h3>
-              <p>Select your best answer. You'll get instant feedback: correct answers are marked in green.</p>
-            </div>
-            <div class="step" data-animate="fade-up" data-delay="180">
-              <div class="step-number">3</div>
-              <h3>Build Your Streak</h3>
-              <p>Keep nailing questions to build a streak! Each streak adds a multiplier to your final score.</p>
-            </div>
-            <div class="step" data-animate="fade-up" data-delay="240">
-              <div class="step-number">4</div>
-              <h3>Review Results</h3>
-              <p>See your percentage, letter grade, stars, and bonus score. Identify weak areas for improvement.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(92, 242, 199, 0.08), transparent);">
-        <div class="container">
-          <h2 data-animate="fade-up">Study Tips</h2>
-          <div style="max-width: 800px; margin: 40px auto; display: grid; gap: 24px;">
-            <article class="feature-card" data-animate="fade-up" data-delay="60">
-              <h3>🎯 Focus on One Track</h3>
-              <p>Master Campus Life or CS Basics separately before mixing them. This helps you identify knowledge gaps faster.</p>
-            </article>
-            <article class="feature-card" data-animate="fade-up" data-delay="120">
-              <h3>🔄 Use Shuffle Mode</h3>
-              <p>Randomize questions to avoid memorizing patterns. This builds true understanding, not just recall.</p>
-            </article>
-            <article class="feature-card" data-animate="fade-up" data-delay="180">
-              <h3>📊 Track Your Streaks</h3>
-              <p>Aim to build your streak higher each time. Streaks show consistency and mastery of material.</p>
-            </article>
-            <article class="feature-card" data-animate="fade-up" data-delay="240">
-              <h3>🌙 Study in Dark Mode</h3>
-              <p>Long study sessions are easier on the eyes with dark mode. Less eye strain, better focus.</p>
-            </article>
-            <article class="feature-card" data-animate="fade-up" data-delay="300">
-              <h3>📱 Quiz on the Go</h3>
-              <p>Take quizzes on your phone during breaks. Short, frequent sessions beat long cramming.</p>
-            </article>
-            <article class="feature-card" data-animate="fade-up" data-delay="360">
-              <h3>🔍 Review Incorrect Answers</h3>
-              <p>Read questions you got wrong carefully. Understand the "why" behind correct answers.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0;">
-        <div class="container">
-          <h2 data-animate="fade-up">Understanding Your Score</h2>
-          <div style="max-width: 700px; margin-top: 40px;">
-            <h3 style="margin: 20px 0 12px; color: var(--accent);">Percentage Score</h3>
-            <p style="color: var(--muted); margin-bottom: 20px;">Your base score: (Correct Answers / Total Questions) × 100</p>
-
-            <h3 style="margin: 20px 0 12px; color: var(--accent-2);">Letter Grade</h3>
-            <p style="color: var(--muted); margin-bottom: 20px;">A (90+%), B (80-89%), C (70-79%), D (60-69%), F (below 60%)</p>
-
-            <h3 style="margin: 20px 0 12px; color: var(--accent-3);">Star Rating</h3>
-            <p style="color: var(--muted); margin-bottom: 20px;">⭐⭐⭐⭐⭐ (95%+), ⭐⭐⭐⭐ (85%+), and more. Visual representation of mastery.</p>
-
-            <h3 style="margin: 20px 0 12px; color: var(--accent);">Streak Bonus</h3>
-            <p style="color: var(--muted);">Final Score = Base Score × Streak Multiplier. Build longer streaks for bigger bonuses (up to 2.0x)!</p>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(74, 163, 255, 0.08), transparent);">
-        <div class="container">
-          <h2 data-animate="fade-up">Frequently Asked Questions</h2>
-          <div class="faq-grid" style="margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <details class="faq-item" data-animate="fade-up" data-delay="60">
-              <summary>Can I retake quizzes?</summary>
-              <p>Yes! Take any quiz unlimited times. Your best score and streaks are tracked automatically.</p>
-            </details>
-            <details class="faq-item" data-animate="fade-up" data-delay="120">
-              <summary>How does the streak system work?</summary>
-              <p>Each correct answer adds to your streak. A wrong answer resets it to 0. Your streak multiplier increases from 1.0x to 2.0x as your streak grows.</p>
-            </details>
-            <details class="faq-item" data-animate="fade-up" data-delay="180">
-              <summary>Are my scores saved?</summary>
-              <p>Scores are saved in your browser's local storage. They persist even after closing the tab.</p>
-            </details>
-            <details class="faq-item" data-animate="fade-up" data-delay="240">
-              <summary>What if I get a question wrong?</summary>
-              <p>You'll see the correct answer highlighted in green. Use this to learn and avoid making the same mistake again.</p>
-            </details>
-            <details class="faq-item" data-animate="fade-up" data-delay="300">
-              <summary>Can I skip questions?</summary>
-              <p>Yes! Click the "Skip" button to move to the next question without answering. Skipped questions count as incorrect for scoring.</p>
-            </details>
-            <details class="faq-item" data-animate="fade-up" data-delay="360">
-              <summary>How many questions are there?</summary>
-              <p>40 total questions: 20 about Campus Life and 20 about CS Basics. You can filter by track or tackle all of them.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-section">
-        <div class="container cta-box">
-          <h2 data-animate="fade-up">Ready to master the quiz?</h2>
-          <p data-animate="fade-up" data-delay="60">Put these tips into action and build an unbeatable streak.</p>
-          <a href="index.html#quiz" class="btn btn-primary btn-lg" data-animate="fade-up" data-delay="120">Start Learning Now</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-section">
-          <h4>UCC Quiz Lab</h4>
-          <p>A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
-          <div class="footer-socials">
-            <a href="https://github.com/1proprogrammerchant" target="_blank">GitHub</a>
-            <a href="https://www.ucc.edu.jm/" target="_blank">UCC</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html#quiz">Start Quiz</a></li>
-            <li><a href="index.html#tracks">Pick Tracks</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
-            <li><a href="docs.html">Guides</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Learn</h4>
-          <ul>
-            <li><a href="index.html#how">How to Play</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-            <li><a href="https://github.com/1proprogrammerchant/ucc-quiz-lab" target="_blank">Source Code</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Info</h4>
-          <p>Built with passion for the UCC community.</p>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">© 2026 Jerome Henry. Licensed for educational use.</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Made for the University of Commonwealth Caribbean</p>
-      </div>
-    </footer>
-
-    <script type="module" src="js/docs.js"></script>
-  </body>
-</html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About UCC Quiz Lab | The Digital Athenaeum</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#303030",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#2d58bf",
+                        "on-primary-fixed-variant": "#033ea6",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface": "#1a1c1c",
+                        "surface-container": "#eeeeee",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-container": "#6f5400",
+                        "on-secondary-fixed": "#251a00",
+                        "surface": "#f9f9f9",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#98b1ff",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "background": "#f9f9f9",
+                        "on-surface-variant": "#434653",
+                        "on-primary": "#ffffff",
+                        "outline": "#747684",
+                        "primary": "#002975",
+                        "surface-variant": "#e2e2e2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#f6bf22",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-container": "#003da5",
+                        "inverse-primary": "#b4c5ff",
+                        "outline-variant": "#c4c6d5",
+                        "tertiary-fixed": "#e4e2e1",
+                        "secondary-container": "#ffc72c",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-container": "#b5b4b3",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#464646",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-secondary-fixed-variant": "#5a4300",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed": "#ffdf99",
+                        "secondary": "#775a00"
+                    },
+                    fontFamily: {
+                        "headline": ["Work Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Work Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 z-40 border-r-0 tonal-shift">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-blue-900 dark:text-blue-500 leading-none">Quiz Lab</h1>
+<p class="text-[10px] uppercase tracking-widest text-secondary font-bold">Digital Athenaeum</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="index.html">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="index.html">
+<span class="material-symbols-outlined">school</span> My Courses
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="leaderboard.html">
+<span class="material-symbols-outlined">leaderboard</span> Leaderboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="leaderboard.html">
+<span class="material-symbols-outlined">analytics</span> Results
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="index.html">
+<span class="material-symbols-outlined">biotech</span> Study Lab
+                </a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="settings.html">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-medium text-sm" href="login.html">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+<button class="w-full mt-4 bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95">
+                Start New Quiz
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 h-16 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary cursor-pointer">menu</span>
+<div class="hidden md:flex bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search resources..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden lg:flex items-center gap-8 font-['Work_Sans'] font-semibold tracking-tight">
+<a class="text-slate-500 hover:text-primary transition-colors" href="docs.html">Resources</a>
+<a class="text-blue-900 dark:text-blue-400 font-bold border-b-2 border-amber-600" href="about.html">About</a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="docs.html#support">Support</a>
+</nav>
+<div class="flex items-center gap-3 border-l pl-6 border-slate-200">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-colors">help_outline</span>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/10" data-alt="professional headshot of a smiling university student in a modern indoor setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBthyMKyaD0EcMpt-4-lLKCzIUPGWKOOun4sy3Lwn39_pKS9h_nNHpWXxMVrVn8F5WYTs79SFBRR0MFEfhNkoEdpC5W0gSaDf9BdLP70yDpiiKEg1ZpoBQJ557Tgx8xmLZJzzfa5rMaWBxxn_nxfoRtztFXPLH3QBWoas-pe33Kd6Vp3Z8alUoowYfwudYVFAu5h_hX1cM-jGszn-_JZDFX16U0zjR9f3ahPHjbAJuGMBZQpEUixsn0EqS_j8J2iwpDhr8XVJyHwqrV"/>
+</div>
+</div>
+</header>
+<!-- Page Content: The Digital Athenaeum -->
+<div class="flex-1 overflow-y-auto pb-20">
+<!-- Hero Section -->
+<section class="relative h-[450px] flex items-center px-12 overflow-hidden bg-primary">
+<div class="absolute inset-0 z-0">
+<img alt="UCC Campus Hallway" class="w-full h-full object-cover opacity-30" data-alt="cinematic view of a modern university library with high ceilings, large windows, and student studying quietly in blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcPRUmV-bxbpypIv4gsTKzNIOnd4pkxUgH41__bQ11V44pRR70IIEjrL8H3IqMeRnr9BLzahlaHQ18rc5FzU9F9jM_aJJaVVwf62rzEG6J-1nDcPVhEzq0nO-0KTBZ44IIqV1Z0ocXE0TwfOPwHXpvsWUG5CXSROpObfpULMsD0RYym9ljDoM2LQCYQgZRlJ53apqnYWr2fSs9aPc_sPNYvnDxOP5pMrIOxtW5BTMuj_FVRngZ8RJIZBsw2LKLTrrUA1Z4UoogmXOo"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-3xl">
+<span class="text-secondary-container font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Institutional Excellence</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6">The Digital Athenaeum</h1>
+<p class="text-xl text-primary-fixed leading-relaxed font-light">
+                        UCC Quiz Lab is the University of the Commonwealth Caribbean’s premier digital learning environment, where academic tradition meets computational precision.
+                    </p>
+</div>
+</section>
+<!-- Bento Grid Overview -->
+<section class="px-8 -mt-20 relative z-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Overview Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl shadow-[0_20px_40px_rgba(0,41,117,0.06)]">
+<h2 class="text-3xl font-bold text-primary mb-6">Platform Philosophy</h2>
+<div class="space-y-4 text-on-surface-variant leading-relaxed text-lg">
+<p>UCC Quiz Lab was conceived as a sanctuary for intellectual growth. Named after the ancient Roman *Athenaeum*, our platform is more than an assessment tool; it is a space for the refinement of knowledge through rigorous, data-informed practice.</p>
+<p>By integrating cognitive science with advanced pedagogy, we provide students and faculty with a transparent window into the learning journey, making mastery measurable and progress permanent.</p>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="bg-gradient-to-br from-secondary to-on-secondary-container p-8 rounded-xl flex flex-col justify-between text-white shadow-xl">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4">account_balance</span>
+<h3 class="text-xl font-bold">University Grade</h3>
+<p class="opacity-80 text-sm mt-2">Engineered to meet the rigorous standards of the University of the Commonwealth Caribbean.</p>
+</div>
+<div class="space-y-4 mt-8">
+<div class="flex items-end gap-2">
+<span class="text-4xl font-black">98%</span>
+<span class="text-xs uppercase tracking-wider mb-1 opacity-75">Retention Rate</span>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features Section -->
+<section class="mt-24 px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">Engineered for Excellence</h2>
+<p class="text-on-surface-variant">Our core features are designed to transform the assessment experience from a moment of stress into a catalyst for growth.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="group">
+<div class="w-16 h-16 bg-surface-container-high rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">psychology_alt</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Adaptive Quizzing</h3>
+<p class="text-on-surface-variant leading-relaxed">Questions that evolve with you. Our algorithms identify your knowledge gaps and adjust difficulty in real-time to ensure optimal cognitive challenge.</p>
+</div>
+<div class="group">
+<div class="w-16 h-16 bg-surface-container-high rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-secondary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">insights</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Real-time Analytics</h3>
+<p class="text-on-surface-variant leading-relaxed">Instant visual feedback on performance. Track your progress across modules with sophisticated heatmaps and strength-weakness matrices.</p>
+</div>
+<div class="group">
+<div class="w-16 h-16 bg-surface-container-high rounded-2xl flex items-center justify-center mb-6 transition-colors group-hover:bg-amber-600 group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">emoji_events</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Leaderboards</h3>
+<p class="text-on-surface-variant leading-relaxed">Gamified academic competition. Rise through the ranks of your cohort and earn prestigious badges recognized by the university.</p>
+</div>
+</div>
+</section>
+<!-- Audience Segments -->
+<section class="mt-32 bg-surface-container-low py-24 px-12">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- For Students -->
+<div class="bg-surface-container-lowest p-12 rounded-3xl shadow-sm border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-full"></div>
+<div class="relative z-10">
+<span class="text-secondary font-bold text-xs uppercase tracking-widest mb-4 block">Student Pathway</span>
+<h2 class="text-4xl font-bold text-primary mb-6">Personalized Learning</h2>
+<p class="text-on-surface-variant mb-8 text-lg leading-relaxed">Every student is unique. Our platform generates customized study paths that prioritize your specific weak areas while reinforcing your strengths.</p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span>AI-curated practice sets</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span>Detailed rationales for every answer</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span>Seamless mobile-first accessibility</span>
+</li>
+</ul>
+<img alt="Students learning" class="w-full h-48 object-cover rounded-2xl shadow-inner grayscale opacity-60 hover:grayscale-0 transition-all duration-500" data-alt="diverse group of university students collaborating around a laptop in a brightly lit modern library study space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-hoomIqkSurmii4yVvH0o81Q9wfPEeIYbVBf9wlKnxuzwXlzp8PhDrfsL9-qN9VcIFOGNFOVGUlLtfGWoGzrneMVxIL_CYaJ-3hmn0LKUZrKMdfFz57aA1yXDEG_npJ7y3vwY8k2p9v49KBPaAMNnQ_dOjIgiD3kgLDWGGAwOyOWgxt38O_-m1FYT6ZO88e2lBH1iM1kONhPDMkwYQQhWnyzgl1beLHvLn-63k2UTVdzi5a2bOOokqVLq5fy-RhDf1DcGk1WN7VTh"/>
+</div>
+</div>
+<!-- For Faculty -->
+<div class="bg-primary text-white p-12 rounded-3xl shadow-xl relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-tr-full"></div>
+<div class="relative z-10">
+<span class="text-secondary-container font-bold text-xs uppercase tracking-widest mb-4 block">Faculty Insight</span>
+<h2 class="text-4xl font-bold mb-6">Data-Driven Instruction</h2>
+<p class="text-primary-fixed mb-8 text-lg leading-relaxed">Empower your teaching with granular data. Identify which concepts your students are struggling with before they walk into the lecture hall.</p>
+<div class="grid grid-cols-2 gap-4 mb-10">
+<div class="bg-white/10 p-4 rounded-xl">
+<h4 class="font-bold text-lg mb-1">94%</h4>
+<p class="text-xs opacity-70">Predictive Accuracy</p>
+</div>
+<div class="bg-white/10 p-4 rounded-xl">
+<h4 class="font-bold text-lg mb-1">Instant</h4>
+<p class="text-xs opacity-70">Reporting Cycles</p>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container">auto_graph</span>
+<span>Automated grading &amp; distribution curves</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container">group_work</span>
+<span>Cohort-level performance tracking</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container">security</span>
+<span>Advanced anti-proctoring measures</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Section -->
+<footer class="mt-24 px-12 py-16 border-t border-surface-container-high">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<span class="text-2xl font-black text-primary">Quiz Lab</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            A product of the University of the Commonwealth Caribbean. Committed to providing quality education through technological innovation.
+                        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h4 class="font-bold text-primary mb-4">Platform</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-secondary" href="index.html">Dashboard</a></li>
+<li><a class="hover:text-secondary" href="index.html">Study Lab</a></li>
+<li><a class="hover:text-secondary" href="leaderboard.html">Leaderboard</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-4">University</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-secondary" href="https://www.ucc.edu.jm/">UCC Website</a></li>
+<li><a class="hover:text-secondary" href="index.html">Academic Portal</a></li>
+<li><a class="hover:text-secondary" href="docs.html#privacy">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="hidden md:block">
+<h4 class="font-bold text-primary mb-4">Contact</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li>support@ucc.edu.jm</li>
+<li>+1 (876) 906-3000</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+<span>© 2024 UCC Quiz Lab - Digital Athenaeum</span>
+<div class="flex gap-6">
+<a href="docs.html#terms">Terms</a>
+<a href="docs.html#cookies">Cookie Policy</a>
+</div>
+</div>
+</footer>
+</div>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white dark:bg-slate-900 flex items-center justify-around px-4 z-50 border-t border-slate-100">
+<a class="flex flex-col items-center text-slate-400" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="index.html">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px] mt-1">Courses</span>
+</a>
+<a class="flex flex-col items-center text-primary font-bold" href="about.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="text-[10px] mt-1">About</span>
+</a>
+<a class="flex flex-col items-center text-slate-400" href="profile.html">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
+<script src="js/main.js"></script>

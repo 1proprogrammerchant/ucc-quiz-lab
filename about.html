@@ -1,191 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About - UCC Quiz Lab</title>
-    <meta
-      name="description"
-      content="Learn about the UCC Quiz Lab, built by Jerome Henry (1proprogrammerchant) for interactive learning."
-    />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/theme.css" />
-  </head>
-  <body>
-    <div class="bg-orbs" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="index.html" class="logo">UCC Quiz Lab</a>
-        <nav class="nav-links">
-          <a href="index.html#quiz">Play</a>
-          <a href="index.html#tracks">Tracks</a>
-          <a href="about.html" class="active">About</a>
-          <a href="leaderboard.html">Scores</a>
-          <a href="docs.html">Guides</a>
-        </nav>
-        <div class="nav-socials">
-          <a class="btn btn-social" href="https://github.com/1proprogrammerchant" target="_blank" title="GitHub">Code</a>
-          <a class="btn btn-social" href="https://www.ucc.edu.jm/" target="_blank" title="UCC Website">UCC</a>
-        </div>
-        <button class="btn btn-ghost" id="themeToggle" type="button">Switch Vibe</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero" style="padding: 60px 0 40px;">
-        <div class="container">
-          <h1 data-animate="fade-up">About UCC Quiz Lab</h1>
-          <p class="lede" data-animate="fade-up" data-delay="60">A modern, high-performance quiz platform designed to make learning interactive, engaging, and fun.</p>
-        </div>
-      </section>
-
-      <section class="about" id="mission">
-        <div class="container">
-          <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-            <div>
-              <h2 data-animate="fade-up">Our Mission</h2>
-              <p style="margin-top: 20px;" data-animate="fade-up" data-delay="60">
-                UCC Quiz Lab was built to transform how students approach learning. We believe education should be engaging, rewarding, and accessible to everyone. Our platform gamifies the learning process with streak tracking, real-time scoring feedback, and beautiful UI/UX design.
-              </p>
-            </div>
-            <div data-animate="fade-up" data-delay="120">
-              <img src="images/ucc-campus.jpg" alt="University of Commonwealth Caribbean Campus" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow);" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(74, 163, 255, 0.08), transparent);">
-        <div class="container">
-          <h2 data-animate="fade-up">The Technology</h2>
-          <div class="features-grid" style="margin-top: 40px;">
-            <div class="feature-card" data-animate="fade-up" data-delay="60">
-              <h3>Frontend</h3>
-              <p>Modern HTML5, CSS3, and vanilla JavaScript (ES6 modules). No build tools, no bloat—just clean, performant code.</p>
-            </div>
-            <div class="feature-card" data-animate="fade-up" data-delay="120">
-              <h3>C++ WebAssembly</h3>
-              <p>The scoring engine is written in C++ and compiled to WebAssembly via Emscripten for blazing-fast calculations.</p>
-            </div>
-            <div class="feature-card" data-animate="fade-up" data-delay="180">
-              <h3>Backend</h3>
-              <p>Python HTTP server for local development. Easily deployable via Docker and nginx for production environments.</p>
-            </div>
-            <div class="feature-card" data-animate="fade-up" data-delay="240">
-              <h3>Database</h3>
-              <p>Browser local storage for score persistence. Future versions will include cloud sync and leaderboards.</p>
-            </div>
-            <div class="feature-card" data-animate="fade-up" data-delay="300">
-              <h3>Design System</h3>
-              <p>Custom CSS with CSS variables for theming. Two built-in themes: Default dark and Sunset purple.</p>
-            </div>
-            <div class="feature-card" data-animate="fade-up" data-delay="360">
-              <h3>Animation</h3>
-              <p>Smooth transitions and Intersection Observer-based reveal animations create an engaging user experience.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style="padding: 80px 0;">
-        <div class="container">
-          <h2 data-animate="fade-up">Creator</h2>
-          <div style="max-width: 600px; margin-top: 40px;" data-animate="fade-up" data-delay="60">
-            <h3 style="margin-bottom: 12px;">Jerome Henry</h3>
-            <p>Full-stack developer, education technology enthusiast, and passionate advocate for open-source learning tools.</p>
-            <p style="margin-top: 16px; color: var(--muted);">
-              Driven by the belief that great education tools should be free, accessible, and beautiful. Jerome built UCC Quiz Lab as a labor of love for the University of Commonwealth Caribbean community.
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - UCC Quiz Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#e8e8e8",
+              "primary-fixed": "#dbe1ff",
+              "on-secondary-fixed": "#251a00",
+              "inverse-on-surface": "#f1f1f1",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#e4e2e1",
+              "inverse-primary": "#b4c5ff",
+              "on-tertiary-container": "#b5b4b3",
+              "tertiary-container": "#464646",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#033ea6",
+              "inverse-surface": "#2f3131",
+              "primary-fixed-dim": "#b4c5ff",
+              "on-primary-container": "#98b1ff",
+              "on-secondary-container": "#6f5400",
+              "primary": "#002975",
+              "on-background": "#1a1c1c",
+              "surface-dim": "#dadada",
+              "on-surface": "#1a1c1c",
+              "surface-bright": "#f9f9f9",
+              "surface-tint": "#2d58bf",
+              "secondary-fixed": "#ffdf99",
+              "secondary": "#775a00",
+              "surface": "#f9f9f9",
+              "on-primary-fixed": "#00174b",
+              "on-secondary-fixed-variant": "#5a4300",
+              "secondary-container": "#ffc72c",
+              "outline": "#747684",
+              "on-primary": "#ffffff",
+              "surface-container": "#eeeeee",
+              "on-error-container": "#93000a",
+              "background": "#f9f9f9",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e2e2e2",
+              "surface-container-lowest": "#ffffff",
+              "outline-variant": "#c4c6d5",
+              "secondary-fixed-dim": "#f6bf22",
+              "on-tertiary-fixed-variant": "#474746",
+              "surface-container-low": "#f3f3f3",
+              "surface-variant": "#e2e2e2",
+              "primary-container": "#003da5",
+              "on-surface-variant": "#434653",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "on-tertiary-fixed": "#1b1c1c",
+              "tertiary": "#303030"
+            },
+            fontFamily: {
+              "headline": ["Work Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .brand-gradient {
+        background: linear-gradient(135deg, #002975 0%, #003da5 100%);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #1a1c1c;
+      }
+      h1, h2, h3 {
+        font-family: 'Work Sans', sans-serif;
+      }
+      .athenaeum-texture {
+        background-image: radial-gradient(circle at 2px 2px, rgba(0, 41, 117, 0.05) 1px, transparent 0);
+        background-size: 24px 24px;
+      }
+    </style>
+</head>
+<body class="bg-surface athenaeum-texture">
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 shadow-none z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 brand-gradient rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-blue-900 dark:text-blue-500 font-headline leading-tight">Quiz Lab</h2>
+<p class="text-xs text-slate-500 font-label">Digital Athenaeum</p>
+</div>
+</div>
+<nav class="mt-8 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-blue-900 dark:text-white border-l-4 border-amber-600 bg-white dark:bg-slate-800 font-bold font-['Work_Sans'] font-medium text-sm transition-all translate-x-1 duration-300" href="about.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+<span>About</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="leaderboard.html">
+<span class="material-symbols-outlined">analytics</span>
+<span>Results</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-300 hover:bg-white dark:hover:bg-slate-800 transition-all font-['Work_Sans'] font-medium text-sm" href="docs.html">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Guides</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200/50">
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm hover:brightness-95 transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+<span>Play Now</span>
+</button>
+</div>
+<div class="mb-6">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-900 hover:bg-white transition-all font-['Work_Sans'] font-medium text-sm" href="https://github.com/1proprogrammerchant" target="_blank">
+<span class="material-symbols-outlined">code</span>
+<span>GitHub</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-6 h-16 w-full bg-white/80 backdrop-blur-md dark:bg-slate-900 shadow-sm md:ml-64 md:w-[calc(100%-16rem)] border-none">
+<div class="flex items-center gap-4">
+  <button id="siteLogo" aria-label="UCC Quiz Lab home" class="md:hidden w-8 h-8 brand-gradient rounded-lg flex items-center justify-center">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="24" height="24" rx="4" fill="#002975"/>
+      <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-family="Work Sans, Inter, sans-serif" font-weight="700" font-size="8">UCC</text>
+    </svg>
+  </button>
+<div class="text-sm font-label font-medium text-slate-500">
+          UCC Academic Portal <span class="mx-2 text-slate-300">/</span> <span class="text-primary font-bold">About</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div data-action="open-profile" class="h-8 w-8 rounded-full overflow-hidden border-2 border-primary/10" style="cursor:pointer;">
+  <img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxvJOTDR2vxdfZUKseCdbVLLJ5IvW-L1ovFuSDOR7jYe-9bGutE3I5skZHXKxYq-8219l-aXncHT4RDDQdSEtR2c_4CSgbACNv89tK2BRZcRhlGuQH-hAnd-rZ1nLmxEZ6iembOMYtSPE_sQNf9sWv1l32081Cn5lZLQGbRwxZHJzDcfGRph8dtVKybqdQGs3l8Uy7lzAlRfGypLqlr0HrW2T6wlattxvTBbFIt2WWv4Djiy4V4Xx4Da70ni_Osm2zdtPnxJuH6cE5" style="width:100%;height:100%;object-fit:cover;"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-64 p-6 lg:p-10 min-h-screen">
+<!-- Hero Section -->
+<section class="mb-10 relative rounded-[2.5rem] overflow-hidden p-10 lg:p-16 brand-gradient text-white shadow-xl">
+<div class="relative z-10 max-w-2xl">
+<p class="font-label text-amber-400 font-semibold mb-3 uppercase tracking-widest text-xs">Knowledge Institutionalized</p>
+<h1 class="text-4xl lg:text-6xl font-headline font-black mb-6 tracking-tight leading-tight">About UCC Quiz Lab</h1>
+<p class="text-on-primary-container text-xl opacity-90 font-body leading-relaxed">
+            A modern, high-performance quiz platform designed to make learning interactive, engaging, and fun.
+          </p>
+</div>
+<!-- Decorative Icon -->
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[24rem] absolute -top-20 -right-20" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+</section>
+<!-- Mission Section -->
+<section class="mb-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<div class="space-y-6">
+<h2 class="text-3xl font-headline font-black text-slate-900 tracking-tight">Our Mission</h2>
+<p class="text-slate-600 font-body leading-relaxed text-lg">
+              UCC Quiz Lab was built to transform how students approach learning. We believe education should be engaging, rewarding, and accessible to everyone. Our platform gamifies the learning process with streak tracking, real-time scoring feedback, and beautiful UI/UX design.
             </p>
-            <div style="margin-top: 24px; display: flex; gap: 16px;">
-              <a href="https://github.com/1proprogrammerchant" target="_blank" class="btn btn-outline">GitHub</a>
-              <a href="https://www.ucc.edu.jm/" target="_blank" class="btn btn-outline">Visit UCC</a>
-            </div>
-          </div>
+<div class="flex gap-4 pt-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-xs font-bold text-slate-600 uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                    UCC Certified
+                </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-full text-xs font-bold text-slate-600 uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">public</span>
+                    Open Source
+                </div>
+</div>
+</div>
+<div class="rounded-[2rem] overflow-hidden shadow-2xl relative group">
+<img alt="University Campus" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClKluz4U1lDodeH4D2SD7QehMtYtInA3nIecGxHr9eIRISGW-vRjXalsxjLST6JIf70dKHIv7M3GFdzp8_IxapWSYwz6K6B51Mtc8lu0Ftjqy2dvg-JHV0I6XnXZsVmuN6FCtOwR3BxBs_HdTdHh4ZQWzVZQNFMe-JYKq6cmfgl7f6HSZB_4GqitpongMZHShxu5rOff0k_u4CddoaR2YYdR7h2S96vPvVJIeTuhMHUo21VctUhYA84wfPyaVEAYVwnZ0bMbNAVQgW"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+</div>
+</div>
+</section>
+<!-- Technology Grid -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-headline font-black text-slate-900 tracking-tight">The Technology</h2>
+<span class="h-px flex-grow mx-8 bg-slate-200 hidden md:block"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Feature Card 1 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">html</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">Frontend</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">Modern HTML5, CSS3, and vanilla JavaScript (ES6 modules). No build tools, no bloat-just clean, performant code.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">memory</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">C++ WebAssembly</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">The scoring engine is written in C++ and compiled to WebAssembly via Emscripten for blazing-fast calculations.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">dns</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">Backend</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">Python HTTP server for local development. Easily deployable via Docker and nginx for production environments.</p>
+</div>
+<!-- Feature Card 4 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">Database</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">Browser local storage for score persistence. Future versions will include cloud sync and leaderboards.</p>
+</div>
+<!-- Feature Card 5 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">Design System</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">Custom CSS with CSS variables for theming. Two built-in themes: Default dark and Sunset purple.</p>
+</div>
+<!-- Feature Card 6 -->
+<div class="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-slate-900 mb-3">Animation</h3>
+<p class="text-slate-500 font-body text-sm leading-relaxed">Smooth transitions and Intersection Observer-based reveal animations create an engaging user experience.</p>
+</div>
+</div>
+</section>
+<!-- Creator Section -->
+<section class="mb-12">
+<div class="bg-surface-container-low p-8 lg:p-12 rounded-[2.5rem]">
+<div class="flex flex-col lg:flex-row gap-10 items-center">
+<div class="shrink-0">
+<div class="w-32 h-32 rounded-full border-4 border-white shadow-xl overflow-hidden brand-gradient flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl">person</span>
+</div>
+</div>
+<div class="flex-grow">
+<h2 class="text-3xl font-headline font-black text-slate-900 mb-4">The Creator</h2>
+<h3 class="text-xl font-headline font-bold text-primary mb-2">Jerome Henry</h3>
+<p class="text-slate-600 mb-4 max-w-xl leading-relaxed">Full-stack developer, education technology enthusiast, and passionate advocate for open-source learning tools.</p>
+<p class="text-slate-500 text-sm italic border-l-2 border-amber-400 pl-4 mb-6">
+                        "Driven by the belief that great education tools should be free, accessible, and beautiful. Jerome built UCC Quiz Lab as a labor of love for the University of Commonwealth Caribbean community."
+                    </p>
+<div class="flex gap-4">
+<a class="px-6 py-2 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition-colors" href="https://github.com/1proprogrammerchant" target="_blank">GitHub Profile</a>
+<a class="px-6 py-2 border border-slate-300 rounded-xl font-bold text-sm text-slate-700 hover:bg-white transition-colors" href="https://www.ucc.edu.jm/" target="_blank">Visit UCC</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="mb-12">
+<h2 class="text-3xl font-headline font-black text-slate-900 tracking-tight mb-8">Why UCC Quiz Lab?</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded-[2rem] border border-slate-100 text-center">
+<p class="text-4xl font-headline font-black text-primary mb-1">0ms</p>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Setup Time</p>
+<p class="text-xs text-slate-500">No downloads or installations needed</p>
+</div>
+<div class="bg-white p-6 rounded-[2rem] border border-slate-100 text-center">
+<p class="text-4xl font-headline font-black text-primary mb-1">100%</p>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Open Source</p>
+<p class="text-xs text-slate-500">View and contribute on GitHub</p>
+</div>
+<div class="bg-white p-6 rounded-[2rem] border border-slate-100 text-center">
+<p class="text-4xl font-headline font-black text-primary mb-1">∞</p>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Free Forever</p>
+<p class="text-xs text-slate-500">No paywalls or subscriptions</p>
+</div>
+<div class="bg-white p-6 rounded-[2rem] border border-slate-100 text-center">
+<p class="text-4xl font-headline font-black text-primary mb-1">1ms</p>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Load Time</p>
+<p class="text-xs text-slate-500">Optimized for extreme speed</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mb-12">
+<div class="bg-secondary-container p-10 lg:p-16 rounded-[2.5rem] flex flex-col items-center text-center shadow-lg">
+<h2 class="text-4xl font-headline font-black text-on-secondary-container mb-4">Ready to learn?</h2>
+<p class="text-on-secondary-container opacity-80 text-lg mb-8 max-w-md">Start testing your knowledge on UCC Quiz Lab today. No account required to start.</p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="px-10 py-4 brand-gradient text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all" href="index.html">Take the Quiz</a>
+<a class="px-10 py-4 bg-white/50 backdrop-blur-sm border border-black/5 text-on-secondary-container font-bold rounded-2xl hover:bg-white/80 transition-all" href="docs.html">Read Guides</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-20 pt-12 border-t border-slate-200">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 brand-gradient rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<h2 class="text-lg font-black text-blue-900 font-headline leading-tight">Quiz Lab</h2>
+</div>
+<p class="text-sm text-slate-500 leading-relaxed">A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Navigation</h4>
+<ul class="space-y-4 text-sm font-medium text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="index.html">Start Quiz</a></li>
+<li><a class="text-primary" href="about.html">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="leaderboard.html">Leaderboard</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Resources</h4>
+<ul class="space-y-4 text-sm font-medium text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="docs.html">Guides</a></li>
+<li><a class="hover:text-primary transition-colors" href="https://github.com/1proprogrammerchant">Source Code</a></li>
+<li><a class="hover:text-primary transition-colors" href="https://www.ucc.edu.jm/">UCC Site</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Connect</h4>
+<p class="text-xs text-slate-500 mb-4">© 2026 Jerome Henry. Licensed for educational use.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-slate-400" href="mailto:support@ucc.edu.jm">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-900 hover:text-white transition-all text-slate-400" href="https://github.com/1proprogrammerchant">
+<span class="material-symbols-outlined text-sm">code</span>
+</a>
+</div>
+</div>
+</div>
+<div class="py-6 border-t border-slate-100 text-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            Made with excellence for the University of Commonwealth Caribbean Community
         </div>
-      </section>
-
-      <section style="padding: 80px 0; background: linear-gradient(160deg, rgba(92, 242, 199, 0.08), transparent);">
-        <div class="container">
-          <h2 data-animate="fade-up">Why UCC Quiz Lab?</h2>
-          <div class="stats-grid" style="margin-top: 40px;">
-            <div class="stat-card" data-animate="fade-up" data-delay="60">
-              <p class="stat-number">0ms</p>
-              <p class="stat-label">Setup Time</p>
-              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">No downloads or installations needed</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="120">
-              <p class="stat-number">100%</p>
-              <p class="stat-label">Open Source</p>
-              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">View and contribute on GitHub</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="180">
-              <p class="stat-number">∞</p>
-              <p class="stat-label">Free Forever</p>
-              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">No paywalls or subscriptions</p>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="240">
-              <p class="stat-number">1ms</p>
-              <p class="stat-label">Load Time</p>
-              <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">Optimized for speed</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-section">
-        <div class="container cta-box">
-          <h2 data-animate="fade-up">Ready to learn?</h2>
-          <p data-animate="fade-up" data-delay="60">Start testing your knowledge on UCC Quiz Lab today.</p>
-          <a href="index.html#quiz" class="btn btn-primary btn-lg" data-animate="fade-up" data-delay="120">Take the Quiz</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-section">
-          <h4>UCC Quiz Lab</h4>
-          <p>A modern quiz platform for learning and assessment at the University of Commonwealth Caribbean.</p>
-          <div class="footer-socials">
-            <a href="https://github.com/1proprogrammerchant" target="_blank">GitHub</a>
-            <a href="https://www.ucc.edu.jm/" target="_blank">UCC</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html#quiz">Start Quiz</a></li>
-            <li><a href="index.html#tracks">Pick Tracks</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
-            <li><a href="docs.html">Guides</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Learn</h4>
-          <ul>
-            <li><a href="index.html#how">How to Play</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-            <li><a href="https://github.com/1proprogrammerchant/ucc-quiz-lab" target="_blank">Source Code</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Info</h4>
-          <p>Built with passion for the UCC community.</p>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">© 2026 Jerome Henry. Licensed for educational use.</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Made for the University of Commonwealth Caribbean</p>
-      </div>
-    </footer>
-
-    <script type="module" src="js/about.js"></script>
-  </body>
-</html>
+</footer>
+</main>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white h-16 flex items-center justify-around z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] border-none">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="about.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="text-[10px] font-bold uppercase">About</span>
+</a>
+<div class="relative -top-6">
+<button class="w-14 h-14 brand-gradient rounded-full text-white shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">play_arrow</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="leaderboard.html">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase">Stats</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="docs.html">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-bold uppercase">Docs</span>
+</a>
+</nav>
+</body></html>
