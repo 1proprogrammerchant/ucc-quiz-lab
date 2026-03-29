@@ -6,9 +6,9 @@ Built by **Me** (GitHub: [1proprogrammerchant](https://github.com/1proprogrammer
 
 ## Features
 
-- **40 questions** across 2 tracks: Campus Life & CS Basics
+- **60 questions** across 2 tracks: On just CS Basics(for now)
 - **Advanced scoring**: Percentage, letter grades, star ratings, streak bonuses
-- **Smooth animations**: Fade-in reveals, floating orbs, theme switcher
+- **Smooth animations**: Fade-in reveals, floating orbs, theme switcher(removed will add a new one soon)
 - **Live stats**: Real-time streak, accuracy, and bonus multipliers
 - **Quiz controls**: Shuffle, track filters, skip questions
 
