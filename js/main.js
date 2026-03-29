@@ -91,7 +91,7 @@
       } catch (err) {
         // ignore network errors
       }
-      window.location.href = 'login.html';
+      window.location.href = 'index.html';
     });
   });
 

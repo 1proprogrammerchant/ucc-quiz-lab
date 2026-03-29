@@ -9,13 +9,14 @@
 <body>
   <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;">
     <div id="quizRoot" style="max-width:900px;width:100%;background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.06);">
-      <h1 id="quizTitle" style="margin-top:0;font-family:Work Sans,Inter,system-ui;">Loading quiz…</h1>
-      <p id="quizDesc" style="color:#555;">Please wait while the quiz loads.</p>
+      <noscript style="display:block;padding:12px;border-radius:8px;background:#fff7ed;border:1px solid #ffd8a8;margin-bottom:12px;color:#92400e;font-weight:700;">JavaScript is disabled or not running in this preview. Open this page through the local server (e.g. <a href="http://localhost:5000/quiz.html?id=ucc-60">http://localhost:5000/quiz.html?id=ucc-60</a>) or enable preview scripts to run the quiz.</noscript>
+      <h1 id="quizTitle" style="margin-top:0;font-family:Work Sans,Inter,system-ui;">Quiz</h1>
+      <p id="quizDesc" style="color:#555;"></p>
       <hr style="margin:18px 0;"/>
       <form id="quizForm"></form>
       <div style="margin-top:18px;display:flex;gap:12px;align-items:center;">
         <button id="submitQuiz" type="button" style="padding:10px 16px;border-radius:8px;background:#002975;color:#fff;border:none;font-weight:700;">Submit</button>
-        <a href="quizzes.html" style="align-self:center;color:#333;font-weight:600;">Back to quizzes</a>
+        <a href="index.html" style="align-self:center;color:#333;font-weight:600;">Back to home</a>
       </div>
       <p id="quizMessage" style="margin-top:12px;font-weight:700;"></p>
     </div>
@@ -27,6 +28,12 @@
     }
     const quizId = qs('id') || 'ucc-60';
     let quizData = null;
+    // ensure we have a persistent guest id for anonymous submissions
+    let guestId = localStorage.getItem('guest_id');
+    if (!guestId) {
+      guestId = 'Guest-' + Math.random().toString(36).slice(2,8).toUpperCase();
+      try { localStorage.setItem('guest_id', guestId); } catch(e){}
+    }
 
     const QUESTION_BANK = [
       { id: 1, prompt: 'What does HTML stand for?', choices: ['HyperText Markup Language', 'HighText Machine Language', 'Hyperlinks and Text Markup Language', 'Home Tool Markup Language'], correct_index: 0 },
@@ -90,6 +97,40 @@
       { id: 59, prompt: 'Which JavaScript method removes leading and trailing whitespace from a string?', choices: ['strip()', 'clean()', 'trim()', 'slice()'], correct_index: 2 },
       { id: 60, prompt: 'Which Docker command removes a container?', choices: ['docker delete', 'docker remove-image', 'docker clear', 'docker rm'], correct_index: 3 }
     ];
+    function renderQuestions(form, questions){
+      form.innerHTML = '';
+      if (!questions || !questions.length) {
+        const empty = document.createElement('div');
+        empty.style.color = '#444';
+        empty.style.fontWeight = '700';
+        empty.textContent = 'No questions available for this quiz.';
+        form.appendChild(empty);
+        return;
+      }
+      questions.forEach((q, i)=>{
+        const qDiv = document.createElement('div');
+        qDiv.style.marginBottom = '14px';
+        const prompt = document.createElement('div');
+        prompt.style.fontWeight = '700';
+        prompt.textContent = (i+1) + ') ' + q.prompt;
+        qDiv.appendChild(prompt);
+        (q.choices||[]).forEach((c, ci)=>{
+          const label = document.createElement('label');
+          label.style.display = 'block';
+          label.style.marginTop = '6px';
+          const inp = document.createElement('input');
+          inp.type = 'radio';
+          inp.name = 'q_' + q.id;
+          inp.value = String(ci);
+          inp.style.marginRight = '8px';
+          label.appendChild(inp);
+          label.appendChild(document.createTextNode(' ' + String.fromCharCode(97 + ci) + ') ' + c));
+          qDiv.appendChild(label);
+        });
+        form.appendChild(qDiv);
+      });
+    }
+
     async function loadQuiz(){
       const root = document.getElementById('quizRoot');
       const title = document.getElementById('quizTitle');
@@ -97,45 +138,58 @@
       const form = document.getElementById('quizForm');
       const msg = document.getElementById('quizMessage');
       try{
-        quizData = {
-          ok: true,
-          quiz: { id: quizId, title: 'UCC Quiz Lab - 60 Question Challenge' },
-          questions: QUESTION_BANK
-        };
-        title.textContent = quizData.quiz.title;
-        desc.textContent = 'Answer all 60 questions. Each question has options a, b, c, d.';
-        form.innerHTML = '';
-        quizData.questions.forEach((q, i)=>{
-          const qDiv = document.createElement('div');
-          qDiv.style.marginBottom = '14px';
-          const prompt = document.createElement('div');
-          prompt.style.fontWeight = '700';
-          prompt.textContent = (i+1) + ') ' + q.prompt;
-          qDiv.appendChild(prompt);
-          (q.choices||[]).forEach((c, ci)=>{
-            const label = document.createElement('label');
-            label.style.display = 'block';
-            label.style.marginTop = '6px';
-            const inp = document.createElement('input');
-            inp.type = 'radio';
-            inp.name = 'q_' + q.id;
-            inp.value = String(ci);
-            label.appendChild(inp);
-            label.appendChild(document.createTextNode(' ' + String.fromCharCode(97 + ci) + ') ' + c));
-            qDiv.appendChild(label);
-          });
-          form.appendChild(qDiv);
-        });
+        // If a backend exists, prefer fetching the quiz. Otherwise fall back to bundled QUESTION_BANK.
+        let fetched = null;
+        try{
+          const res = await fetch('/api/quiz/' + encodeURIComponent(quizId));
+          if (res.ok) fetched = await res.json();
+        }catch(e){ /* ignore fetch errors and use local bank */ }
+
+        if (fetched && fetched.ok && Array.isArray(fetched.questions) && fetched.questions.length){
+          quizData = { ok: true, quiz: fetched.quiz || { id: quizId, title: 'Quiz' }, questions: fetched.questions };
+        } else {
+          quizData = { ok: true, quiz: { id: quizId, title: 'UCC Quiz Lab - 60 Question Challenge' }, questions: QUESTION_BANK };
+        }
+
+        title.textContent = quizData.quiz.title || 'Quiz';
+        desc.textContent = quizData.questions && quizData.questions.length ? ('Answer ' + quizData.questions.length + ' questions.') : '';
+        // indicate whether we used remote data or local fallback
+        if (fetched && fetched.ok) {
+          const note = document.createElement('div');
+          note.style.marginTop = '8px';
+          note.style.color = '#666';
+          note.textContent = 'Loaded from server.';
+          desc.appendChild ? desc.appendChild(note) : null;
+        } else {
+          const note = document.createElement('div');
+          note.style.marginTop = '8px';
+          note.style.color = '#666';
+          note.textContent = 'Using local question set (offline fallback).';
+          desc.appendChild ? desc.appendChild(note) : null;
+        }
+        renderQuestions(form, quizData.questions);
+        const info = document.getElementById('quizMessage');
+        if (quizData.questions && quizData.questions.length) {
+          info.style.color = '#157a00';
+          info.textContent = 'Loaded ' + quizData.questions.length + ' questions.';
+        } else {
+          info.style.color = '#b91c1c';
+          info.textContent = 'No questions available.';
+        }
       }catch(e){
         title.textContent = 'Quiz load error';
         desc.textContent = e.message || String(e);
         form.innerHTML = '';
+        const fallback = document.createElement('div');
+        fallback.style.marginTop = '12px';
+        fallback.innerHTML = '<a href="index.html" style="color:#002975;font-weight:700;">Back to home</a>';
+        root.appendChild(fallback);
       }
     }
 
     document.getElementById('submitQuiz').addEventListener('click', async ()=>{
       const msg = document.getElementById('quizMessage');
-      if (!quizData) { msg.style.color='#b91c1c'; msg.textContent = 'Quiz not loaded.'; return; }
+      if (!quizData || !quizData.questions || !quizData.questions.length) { msg.style.color='#b91c1c'; msg.textContent = 'No questions to submit.'; return; }
       let correct = 0, total = quizData.questions.length;
       quizData.questions.forEach(q=>{
         const sel = document.querySelector('input[name="q_' + q.id + '"]:checked');
@@ -145,11 +199,14 @@
       msg.style.color='#157a00';
       msg.textContent = `You scored ${score}% (${correct}/${total}) - submitting...`;
       try{
-        const res = await fetch('/api/submit-score', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ quiz_id: quizId, score }) });
+          const already = localStorage.getItem('submitted_quiz_' + quizId);
+          if (already) { msg.style.color = '#b91c1c'; msg.textContent = 'You have already submitted this quiz.'; return; }
+          const res = await fetch('/api/submit-score', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ quiz_id: quizId, score, anon_name: guestId }) });
         const data = await res.json();
         if (res.ok && data.ok) {
-          msg.textContent = 'Score submitted - redirecting to profile...';
-          setTimeout(()=> location.href = 'profile.html', 800);
+            try { localStorage.setItem('submitted_quiz_' + quizId, '1'); } catch(e){}
+            msg.textContent = 'Score submitted. Thank you!';
+            setTimeout(()=> location.href = 'index.html', 800);
         } else {
           msg.style.color = '#b91c1c';
           msg.textContent = data.message || 'Failed to submit score.';

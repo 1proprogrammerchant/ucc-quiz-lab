@@ -201,8 +201,6 @@ def api_register():
 
 @app.route('/api/submit-score', methods=['POST'])
 def api_submit_score():
-    if 'user' not in session:
-        return jsonify({'ok': False, 'message': 'Not logged in'}), 401
     data = request.get_json() or request.form
     quiz_id = data.get('quiz_id')
     try:
@@ -211,20 +209,37 @@ def api_submit_score():
         return jsonify({'ok': False, 'message': 'Invalid score'}), 400
     if not quiz_id:
         return jsonify({'ok': False, 'message': 'Missing quiz id'}), 400
-    username = session['user']
+
+    # Determine username: prefer logged-in user, otherwise accept an anonymous name provided by client
+    username = session.get('user')
+    anon_name = (data.get('anon_name') or data.get('anon') or data.get('username')) if isinstance(data, dict) else None
+    if not username:
+        if anon_name:
+            username = str(anon_name)[:64]
+        else:
+            # Generate a guest id if none provided
+            username = 'guest_' + datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S%f')
+
     conn = get_db()
     cur = conn.cursor()
     now = datetime.now(timezone.utc).isoformat()
     cur.execute('INSERT INTO attempts(username, quiz_id, score, created_at) VALUES (?,?,?,?)', (username, quiz_id, score, now))
-    cur.execute('UPDATE users SET quizzes_completed = quizzes_completed + 1 WHERE username = ?', (username,))
-    # create a notification for this user's new grade
-    # use helper to insert, broadcast and optionally email
+    # If the submission is from a registered user, increment their completed count and send personal notification
+    if session.get('user'):
+        try:
+            cur.execute('UPDATE users SET quizzes_completed = quizzes_completed + 1 WHERE username = ?', (username,))
+        except Exception:
+            pass
     conn.commit()
     conn.close()
-    send_notification(username, 'grade', f'New result for {quiz_id}: {score}%')
-    # broadcast a leaderboard update event
+
+    # Only notify registered users to avoid spamming global notifications for guests
+    if session.get('user'):
+        send_notification(username, 'grade', f'New result for {quiz_id}: {score}%')
+
+    # broadcast a leaderboard update event (includes guest names)
     broadcast_event({'type': 'leaderboard_update', 'payload': {'username': username, 'quiz_id': quiz_id, 'score': score}})
-    return jsonify({'ok': True, 'message': 'Score recorded'})
+    return jsonify({'ok': True, 'message': 'Score recorded', 'username': username})
 
 
 @app.route('/api/leaderboard', methods=['GET'])
@@ -432,28 +447,8 @@ def api_me():
 
 @app.route('/api/change-password', methods=['POST'])
 def api_change_password():
-    if 'user' not in session:
-        return jsonify({'ok': False, 'message': 'Not logged in'}), 401
-    data = request.get_json() or request.form
-    old = data.get('old_password')
-    new = data.get('new_password')
-    if not old or not new:
-        return jsonify({'ok': False, 'message': 'Missing fields'}), 400
-    username = session['user']
-    conn = get_db()
-    cur = conn.cursor()
-    cur.execute('SELECT password_hash FROM users WHERE username = ?', (username,))
-    row = cur.fetchone()
-    if not row or not check_password_hash(row['password_hash'], old):
-        conn.close()
-        return jsonify({'ok': False, 'message': 'Incorrect password'}), 403
-    cur.execute('UPDATE users SET password_hash = ? WHERE username = ?', (generate_password_hash(new), username))
-    conn.commit()
-    # create a security notification via helper
-    conn.commit()
-    conn.close()
-    send_notification(username, 'security', 'Your account password was changed')
-    return jsonify({'ok': True, 'message': 'Password changed'})
+    # Password change endpoint removed — password management is disabled in this build.
+    return jsonify({'ok': False, 'message': 'Password change disabled'}), 410
 
 
 @app.route('/')
